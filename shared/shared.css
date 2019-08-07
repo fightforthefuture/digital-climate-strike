@@ -1,0 +1,62 @@
+/* Digital Climate Strike scoped general element styles */
+.sc-dcs {
+  font-family: 'Katwijk',monospace;
+  font-weight: bold;
+}
+.sc-dcs h1, .sc-dcs h2 {
+  font-family: 'Greve Narrow', 'Impact', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sc-dcs h1 {
+  font-size: 3.2rem;
+}
+.sc-dcs a {
+  color: #000;
+}
+.sc-dcs img {
+  max-width: 100%;
+}
+.sc-dcs .h-center {
+  text-align: center !important;
+}
+.dcs-button {
+  display: inline-block;
+  background-color: #FFF;
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0.3em 0.3em 0 #000;
+  font-weight: bold;
+  font-family: 'Katwijk','Courier New',Courier,monospace;
+  font-size: 1rem;
+  letter-spacing: calc(0.07rem - 0.01em);
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 1em 1.5em;
+  white-space: nowrap;
+}
+
+.dcs-mobile-only {
+  display: none;
+}
+@media(max-width: 600px) {
+  .dcs-invisible-on-mobile {
+    display: none;
+  }
+  .dcs-mobile-only {
+    display: block;
+  }
+}
+
+
+.dcs-small-text {
+  font-size: 0.75em;
+}
+
+.dcs-logo--sm {
+  max-height: 90px;
+}
+
+.dcs-logo--med {
+  max-height: 160px;
+}

@@ -1,10 +1,5 @@
-a {
-  color: #000;
-}
-
 .dcs-footer {
   font-size: 1rem;
-  font-family: 'Katwijk',monospace;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -29,10 +24,6 @@ a {
   flex-shrink: 1;
   padding-right: 1em;
 }
-.dcs-logo--sm {
-  max-height: 90px;
-}
-
 .dcs-footer__main {
   display: flex;
   flex-wrap: wrap;
@@ -50,20 +41,4 @@ a {
 .dcs-footer__action {
   display: flex;
   align-items: center;
-}
-
-.dcs-button {
-  display: inline-block;
-  background-color: #FFF;
-  color: #000;
-  text-decoration: none;
-  box-shadow: 0.3em 0.3em 0 #000;
-  font-weight: bold;
-  font-family: 'Katwijk','Courier New',Courier,monospace;
-  font-size: 1rem;
-  letter-spacing: calc(0.07rem - 0.01em);
-  text-transform: uppercase;
-  border-radius: 0;
-  padding: 1em 1.5em;
-  white-space: nowrap;
 }

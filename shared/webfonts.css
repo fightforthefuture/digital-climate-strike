@@ -15,3 +15,8 @@
        url('webfonts/katwijk-mono-regular-web.ttf')  format('truetype'); /* Safari, Android, iOS */
  font-weight: normal;
 }
+
+@font-face {
+  font-family: 'Greve Narrow';
+  src: url('webfonts/greve-narrow-800.otf');
+}
