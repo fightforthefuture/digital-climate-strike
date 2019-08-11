@@ -1,6 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const path = require('path')
@@ -75,11 +75,11 @@ module.exports = {
       inlineSource: '.(js|css)$',
       language: 'en'
     }),
-    new CopyWebpackPlugin([
-      { from: 'static' }
+    new CopyPlugin([
+      { from: 'static', to: '' }
     ]),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'app.[hash].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     })
