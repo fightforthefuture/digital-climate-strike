@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+script:
+  - "npm run lint"
+  - "npm run build"
+cache:
+  directories:
+    - "node_modules"
+deploy:
+  provider: gcs
+  access_key_id: "$GCS_ACCESS_KEY"
+  secret_access_key: "$GCS_SECRET_KEY"
+  bucket: "$GCS_BUCKET"
+  skip_cleanup: true
+  local-dir: dist

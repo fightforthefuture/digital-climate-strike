@@ -1,0 +1,43 @@
+{
+  "name": "digital-climate-strike-widget",
+  "version": "1.0.0",
+  "description": "Digital Climate Strike widget so anyone can join the digital climate strike",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "lint": "./node_modules/.bin/eslint src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/global-climate-strikes/digital-climate-strike.git"
+  },
+  "author": "Global Climate Strike",
+  "bugs": {
+    "url": "https://github.com/global-climate-strikes/digital-climate-strike/issues"
+  },
+  "homepage": "https://github.com/global-climate-strikes/digital-climate-strike#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.1.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "^0.8.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
+  }
+}

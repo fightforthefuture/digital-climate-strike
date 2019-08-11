@@ -1,0 +1,170 @@
+
+/* Digital Climate Strike scoped common element styles */
+.sc-dcs {
+  font-family: 'Katwijk',monospace;
+  font-weight: bold;
+  color: #231F20;
+}
+.sc-dcs h1, .sc-dcs h2 {
+  font-family: 'Greve Narrow', 'Impact', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #231F20;
+}
+.sc-dcs h1 {
+  font-size: 4rem;
+}
+.sc-dcs a {
+  color: #231F20;
+}
+.sc-dcs img {
+  max-width: 100%;
+}
+.sc-dcs .h-center {
+  text-align: center !important;
+}
+.dcs-button {
+  display: inline-block;
+  background-color: #FFF;
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0.3em 0.3em 0 #000;
+  font-weight: bold;
+  font-family: 'Katwijk','Courier New',Courier,monospace;
+  font-size: 1rem;
+  letter-spacing: calc(0.07rem - 0.01em);
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 1em 1.5em;
+  white-space: nowrap;
+}
+
+.dcs-mobile-only {
+  display: none;
+}
+
+
+.dcs-small-text {
+  font-size: 0.5em;
+}
+
+.dcs-logo--sm {
+  max-height: 90px;
+}
+
+.dcs-logo--med {
+  max-height: 160px;
+}
+
+/* Full page styles */
+.dcs-full-page {
+  background-color: #4ee58b;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dcs-full-page__container {
+  max-width: 40rem;
+}
+.dcs-full-page__main {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.dcs-full-page__logos {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.dcs-full-page__logo {
+  padding: 1em;
+  flex-basis: 40%;
+  flex-shrink: 1;
+}
+
+.dcs-full-page__details {
+  padding: 1em;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dcs-full-page__body {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.dcs-full-page__body p {
+  margin-top: 0;
+}
+.dcs-full-page__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer Styles */
+.dcs-footer {
+  font-size: 1rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #4ee58b;
+  box-shadow: 0em 0em 10px rgba(0,0,0,0.2);
+  padding: 1em 0;
+}
+
+.dcs-footer__container {
+  max-width: 50em;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1em;
+}
+
+.dcs-footer__logo {
+  flex-grow: 0;
+  flex-shrink: 1;
+  padding-right: 1em;
+}
+.dcs-footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-basis: 100%;
+}
+
+.dcs-footer__body {
+  padding-bottom: 1em;
+  font-weight: bold;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.dcs-footer__action {
+  display: flex;
+  align-items: center;
+}
+
+
+@media(max-width: 600px) {
+  .dcs-invisible-on-mobile {
+    display: none;
+  }
+  .dcs-mobile-only {
+    display: block;
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .dcs-full-page__body {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
