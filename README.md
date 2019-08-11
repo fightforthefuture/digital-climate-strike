@@ -4,7 +4,7 @@ This September, millions of us will walk out of our workplaces and homes to join
 
 This is the source code for the Digital Climate Strike's widget, that will allow anyone with a website to join the digital climate strike in solidarity.   
 
-[Click here to learn more.](https://globalclimatestrikes.net) 
+[Click here to learn more.](https://globalclimatestrike.net) 
 
 ## Contributing to this repository
 
