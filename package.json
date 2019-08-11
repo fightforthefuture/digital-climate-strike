@@ -1,7 +1,7 @@
 {
-  "name": "digital-climate-strike",
+  "name": "digital-climate-strike-widget",
   "version": "1.0.0",
-  "description": "Digital Climate Strike front end implementation for websites",
+  "description": "Digital Climate Strike widget so anyone can join the digital climate strike",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
@@ -12,7 +12,6 @@
     "url": "git+https://github.com/global-climate-strikes/digital-climate-strike.git"
   },
   "author": "Global Climate Strike",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/global-climate-strikes/digital-climate-strike/issues"
   },
