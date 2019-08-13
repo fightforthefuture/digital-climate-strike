@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   var DOM_ID = 'DIGITAL_CLIMATE_STRIKE';
 
   // user-configurable options
@@ -30,6 +29,16 @@
     return wrapper;
   }
 
+  function maximize() {
+    document.getElementById(DOM_ID).style.width = '100%';
+    document.getElementById(DOM_ID).style.height = '100%';
+  }
+
+  function closeWindow() {
+    document.getElementById(DOM_ID).remove();
+    window.removeEventListener('message', receiveMessage);
+  }
+
   function injectCSS(id, css) {
     var style = document.createElement('style');
     style.type = 'text/css';
@@ -43,6 +52,17 @@
     document.head.appendChild(style);
   }
 
+  function receiveMessage(event) {
+    if (!event.data.DIGITAL_CLIMATE_STRIKE) return;
+
+    switch (event.data.action) {
+      case 'maximize':
+        return maximize();
+      case 'closeWindow':
+        return closeWindow();
+    }
+  }
+
   function initializeInterface() {
     createIframe();
 
@@ -53,13 +73,13 @@
       '#' + DOM_ID + ' iframe { width: 100%; height: 100%; }'
     );
 
+    // listen for messages from iframe
+    window.addEventListener('message', receiveMessage);
+
     document.removeEventListener('DOMContentLoaded', initializeInterface);
   }
 
   function getIframeHeight() {
-    if (forceFullPageWidget) {
-      return '100%'
-    }
 
     var isProbablyMobile = window.innerWidth < 600;
 
