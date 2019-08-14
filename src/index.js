@@ -5,10 +5,12 @@ let isMaximizing = false
 function maximize() {
   if (isMaximizing) return
   isMaximizing = true
-
   postMessage('maximize')
   const stickyFooter = document.querySelector('.dcs-footer')
   stickyFooter.style.display = 'none'
+
+  const fullPage = document.querySelector('.dcs-full-page')
+  fullPage.style.display = 'flex'
 }
 
 function todayIs(y, m, d) {
@@ -64,5 +66,4 @@ function initializeInterface() {
     maximize()
   }
 }
-
 document.addEventListener('DOMContentLoaded', initializeInterface)
