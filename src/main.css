@@ -65,10 +65,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
+
 .dcs-full-page__container {
   max-width: 40rem;
 }
@@ -151,6 +152,33 @@
 .dcs-footer__action {
   display: flex;
   align-items: center;
+}
+
+.dcs-close {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+}
+.dcs-close:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.dcs-close:before, .dcs-close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 25px;
+  width: 2px;
+  background-color: #000;
+}
+.dcs-close:before {
+  transform: rotate(45deg);
+}
+.dcs-close:after {
+  transform: rotate(-45deg);
 }
 
 
