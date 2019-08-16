@@ -39,6 +39,10 @@
     window.removeEventListener('message', receiveMessage);
   }
 
+  function navigateToLink() {
+    document.location ='https://globalclimatestrike.net';
+  }
+
   function injectCSS(id, css) {
     var style = document.createElement('style');
     style.type = 'text/css';
@@ -60,6 +64,8 @@
         return maximize();
       case 'closeWindow':
         return closeWindow();
+      case 'navigateToLink':
+        return navigateToLink();
     }
   }
 

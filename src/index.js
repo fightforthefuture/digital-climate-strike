@@ -47,6 +47,12 @@ function closeWindow(event) {
   postMessage('closeWindow')
 }
 
+function navigateToLink(event) {
+  event.preventDefault()
+  event.stopPropagation()
+  postMessage('navigateToLink')
+}
+
 function attachEvent(selector, event, callback) {
   var elements = document.querySelectorAll(selector)
   for (var i = 0; i < elements.length; i++) {
@@ -59,6 +65,7 @@ function initializeInterface() {
   const query = parseQuery(location.search)
 
   attachEvent('.dcs-close', 'click', closeWindow)
+  attachEvent('.dcs-button', 'click', navigateToLink)
 
   const isDayOfAction = todayIs(2019, 9, 20)
 
