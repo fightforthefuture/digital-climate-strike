@@ -7,6 +7,8 @@ script:
 cache:
   directories:
     - "node_modules"
+before_deploy:
+  - "gsutil rm gs://$GCS_BUCKET/*"
 deploy:
   provider: gcs
   access_key_id: "$GCS_ACCESS_KEY"
