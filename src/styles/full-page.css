@@ -5,8 +5,10 @@
   background-color: var(--green);
   bottom: 0;
   display: none;
+  height: 100%;
   justify-content: center;
   left: 0;
+  min-height: 100vh;
   position: absolute;
   right: 0;
   top: 0;
@@ -17,48 +19,65 @@
   max-width: 40rem;
 }
 
-.dcs-full-page__main {
-  display: flex;
-  flex-wrap: nowrap;
+.dcs-full-page__close {
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3rem;
 }
 
-.dcs-full-page__logos {
-  display: flex;
-  align-items: center;
-  width: 100%;
+.dcs-full-page__main {
+  max-width: 24rem;
+  text-align: center;
+  padding-bottom: 4rem;
 }
 
 .dcs-full-page__logo {
-  padding: 1rem;
-  flex-basis: 40%;
-  flex-shrink: 1;
-}
-
-.dcs-full-page__details {
-  padding: 1rem;
-  flex-basis: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
+  margin: 0 auto;
+  width: 6rem;
 }
 
 .dcs-full-page__body {
+  font-family: 'Greve Narrow', 'Impact', sans-serif;
   font-weight: bold;
-  font-size: 2rem;
-
-  & p {
-    margin-top: 0;
-  }
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+  margin: 2.5rem auto 0;
+  padding: 0 .5rem;
 }
 
 .dcs-full-page__action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 1.5rem auto 0;
 }
 
-@media(max-width: 600px) {
-  .dcs-full-page__body {
-    font-size: 1.8rem;
-    text-align: center;
+.dcs-full-page__small-text {
+  bottom: 0;
+  left: 0;
+  padding: 2rem 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  & small {
+    display: inline-block;
+    max-width: 24rem;
+  }
+}
+
+/* Breakpoint */
+
+@media(min-width: 900px) {
+  .dcs-full-page__logo {
+    width: 8rem;
+  }
+
+  .dcs-full-page__container {
+    max-width: 24rem;
+  }
+
+  .dcs-full-page__action {
+    margin-top: 2rem;
   }
 }

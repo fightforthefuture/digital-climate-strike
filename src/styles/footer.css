@@ -27,11 +27,8 @@
 }
 
 .dcs-footer__logo {
+  display: block;
   flex: 0 0 15%;
-}
-
-.dcs-footer__logoImg {
-  max-height: 5rem;
 }
 
 .dcs-footer__main {
@@ -50,6 +47,8 @@
   margin: 1rem 0 0;
 }
 
+/* Breakpoint */
+
 @media(min-width: 900px) {
 
   .dcs-footer {
@@ -62,10 +61,6 @@
 
   .dcs-footer__logo {
     flex: 0 0 10%;
-  }
-
-  .dcs-footer__logoImg {
-    max-height: 4rem;
   }
 
   .dcs-footer__main {
