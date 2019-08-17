@@ -62,9 +62,9 @@
     switch (event.data.action) {
       case 'maximize':
         return maximize();
-      case 'closeWindow':
+      case 'closeButtonClicked':
         return closeWindow();
-      case 'navigateToLink':
+      case 'buttonClicked':
         return navigateToLink();
     }
   }
