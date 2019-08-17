@@ -1,9 +1,10 @@
 @import './styles/global.css';
-/* @import './styles/common.css'; */
 
 /* Components */
 @import './styles/button.css';
 @import './styles/close.css';
+@import './styles/logo.css';
+
+/* Views */
 @import './styles/footer.css';
 @import './styles/full-page.css';
-@import './styles/logo.css';

@@ -34,6 +34,9 @@ img {
  */
 
 html, body {
+  color: var(--grey);
+  font-family: 'Katwijk', monospace;
   font-size: 100%; /* 16px base font */
+  font-weight: bold;
 }
 /* stylelint-enable */
