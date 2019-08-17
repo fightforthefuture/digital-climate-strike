@@ -1,0 +1,36 @@
+/* stylelint-disable */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Shared CSS custom properties
+ */
+
+:root {
+
+  /* Colors */
+  --black: #000;
+  --green: #4ee58b;
+  --white: #fff;
+  --grey:#231F20;
+
+}
+
+/**
+ * Type scale
+ *  Baseline body copy font is 16px = 1rem;
+ */
+
+  html, body {
+    font-size: 100%; /* 16px base font */
+  }
+/* stylelint-enable */

@@ -1,0 +1,45 @@
+/* Footer Styles */
+.dcs-footer {
+  font-size: 1rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--green);
+  box-shadow: 0 0 1.6rem rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+}
+
+.dcs-footer__container {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1rem;
+}
+
+.dcs-footer__logo {
+  flex-grow: 0;
+  flex-shrink: 1;
+  padding-right: 1rem;
+}
+.dcs-footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-basis: 100%;
+}
+
+.dcs-footer__body {
+  padding-bottom: 1rem;
+  font-weight: bold;
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.dcs-footer__action {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,63 @@
+/* Full page styles */
+.dcs-full-page {
+  align-items: center;
+  background-color: var(--green);
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.dcs-full-page__container {
+  max-width: 40rem;
+}
+
+.dcs-full-page__main {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.dcs-full-page__logos {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.dcs-full-page__logo {
+  padding: 1rem;
+  flex-basis: 40%;
+  flex-shrink: 1;
+}
+
+.dcs-full-page__details {
+  padding: 1rem;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dcs-full-page__body {
+  font-weight: bold;
+  font-size: 2rem;
+
+  & p {
+    margin-top: 0;
+  }
+}
+
+.dcs-full-page__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media(max-width: 600px) {
+  .dcs-full-page__body {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
