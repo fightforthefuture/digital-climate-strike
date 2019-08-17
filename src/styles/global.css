@@ -11,6 +11,10 @@
   box-sizing: inherit;
 }
 
+img {
+  max-width: 100%;
+}
+
 /**
  * Shared CSS custom properties
  */
@@ -22,7 +26,6 @@
   --green: #4ee58b;
   --white: #fff;
   --grey:#231F20;
-
 }
 
 /**
@@ -30,7 +33,7 @@
  *  Baseline body copy font is 16px = 1rem;
  */
 
-  html, body {
-    font-size: 100%; /* 16px base font */
-  }
+html, body {
+  font-size: 100%; /* 16px base font */
+}
 /* stylelint-enable */

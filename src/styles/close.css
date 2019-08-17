@@ -1,29 +1,54 @@
 /* close.css */
 
-
 .dcs-close {
-  position: absolute;
-  right: 25px;
-  top: 25px;
-  width: 25px;
-  height: 25px;
-  opacity: 0.5;
-}
-.dcs-close:hover {
-  opacity: 1;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  display: flex;
+  height: 100%;
+  max-height: 3rem;
+  max-width: 3rem;
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    background-color: rgba(0, 0, 0, .5);
+    content: '';
+    height: 1.2rem;
+    position: absolute;
+    width: 2px;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover,
+  &:focus {
+
+    &::before,
+    &::after {
+      background-color: rgba(0, 0, 0, 1);
+    }
+  }
+
+  &:focus {
+    outline: 2px dotted var(--black);
+  }
+
+  & .dcs-sr-only {
+    height: 1px;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+  }
 }
-.dcs-close:before, .dcs-close:after {
-  position: absolute;
-  left: 15px;
-  content: ' ';
-  height: 25px;
-  width: 2px;
-  background-color: #000;
-}
-.dcs-close:before {
-  transform: rotate(45deg);
-}
-.dcs-close:after {
-  transform: rotate(-45deg);
-}
+
+

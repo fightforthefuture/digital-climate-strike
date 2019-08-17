@@ -1,8 +1,8 @@
-/* Tidy */
 @import './styles/global.css';
 /* @import './styles/common.css'; */
 
 /* Components */
+@import './styles/button.css';
 @import './styles/close.css';
 @import './styles/footer.css';
 @import './styles/full-page.css';
