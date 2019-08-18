@@ -1,18 +1,56 @@
-/* full-page */
+/* Full page styles */
+.sc-dcs {
+  font-family: 'Katwijk',monospace;
+  font-weight: bold;
+  color: var(--grey);
+}
+
+.sc-dcs h1, .sc-dcs h2 {
+  font-family: 'Greve Narrow', 'Impact', sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.sc-dcs h1 {
+  font-size: 4rem;
+}
+
+.sc-dcs a {
+  color: var(--grey);
+}
+
+.sc-dcs img {
+  max-width: 100%;
+}
+
+.sc-dcs .h-center {
+  text-align: center !important;
+}
+
+.dcs-mobile-only {
+  display: none;
+}
+
+.dcs-small-text {
+  font-size: 0.5em;
+}
+
+.dcs-logo--med {
+  max-height: 160px;
+}
 
 .dcs-full-page {
-  align-items: center;
   background-color: var(--green);
-  bottom: 0;
-  display: none;
-  height: 100%;
-  justify-content: center;
-  left: 0;
-  min-height: 100vh;
   position: absolute;
-  right: 0;
-  top: 0;
   width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .dcs-full-page__container {
@@ -20,64 +58,62 @@
 }
 
 .dcs-full-page__close {
-  height: 3rem;
+  height: 2.5rem;
   position: absolute;
   right: 0;
   top: 0;
-  width: 3rem;
+  width: 2.5rem;
+}
+
+.dcs-full-page__button {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  box-shadow: 0.3rem 0.3rem 0 var(--black);
+  font-weight: bold;
+  font-family: 'Katwijk','Courier New',Courier,monospace;
+  font-size: 1rem;
+  letter-spacing: calc(0.07rem - 0.01em);
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
 }
 
 .dcs-full-page__main {
-  max-width: 24rem;
-  text-align: center;
-  padding-bottom: 4rem;
+  display: flex;
+  flex-wrap: nowrap;
 }
-
-.dcs-full-page__logo {
-  display: block;
-  margin: 0 auto;
-  width: 6rem;
-}
-
-.dcs-full-page__body {
-  font-family: 'Greve Narrow', 'Impact', sans-serif;
-  font-weight: bold;
-  font-size: 1.8rem;
-  line-height: 2.6rem;
-  margin: 2.5rem auto 0;
-  padding: 0 .5rem;
-}
-
-.dcs-full-page__action {
-  margin: 1.5rem auto 0;
-}
-
-.dcs-full-page__small-text {
-  bottom: 0;
-  left: 0;
-  padding: 2rem 0;
-  position: absolute;
-  text-align: center;
+.dcs-full-page__logos {
+  display: flex;
+  align-items: center;
   width: 100%;
-
-  & small {
-    display: inline-block;
-    max-width: 24rem;
-  }
+}
+.dcs-full-page__logo {
+  padding: 1em;
+  flex-basis: 40%;
+  flex-shrink: 1;
 }
 
-/* Breakpoint */
-
-@media(min-width: 900px) {
-  .dcs-full-page__logo {
-    width: 8rem;
-  }
-
-  .dcs-full-page__container {
-    max-width: 24rem;
-  }
-
-  .dcs-full-page__action {
-    margin-top: 2rem;
-  }
+.dcs-full-page__details {
+  padding: 1rem;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
+.dcs-full-page__body {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.dcs-full-page__body p {
+  margin-top: 0;
+}
+.dcs-full-page__action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
