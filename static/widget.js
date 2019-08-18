@@ -8,7 +8,7 @@
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://globalclimatestrike.net';
   var forceFullPageWidget = !!options.forceFullPageWidget;
 
-  function setWebsiteName() {
+  function onIframeLoad() {
     if (websiteName) {
       var websiteNameEls = document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByClassName('dcs-website-name');
       for (var i = 0; i < websiteNameEls.length; i++) {
@@ -34,7 +34,7 @@
     iframe.src = getIframeSrc();
     iframe.frameBorder = 0;
     iframe.allowTransparency = true;
-    iframe.onload = setWebsiteName;
+    iframe.onload = onIframeLoad;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
