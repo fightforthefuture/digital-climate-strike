@@ -11,6 +11,15 @@
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://globalclimatestrike.net';
   var forceFullPageWidget = !!options.forceFullPageWidget;
 
+  function onIframeLoad() {
+    var fullscreenDisplayDate = monthName(fullscreenDate.getMonth()) + ' ' + fullscreenDate.getDate();
+    var nextDay = new Date(fullscreenDate.getFullYear(), fullscreenDate.getMonth(), fullscreenDate.getDate() + 1);
+    var nextDayDisplayDate = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
+    var iframe = document.getElementsByTagName('iframe')[0].contentWindow.document;
+    iframe.getElementById('dcs-strike-date').innerText = fullscreenDisplayDate;
+    iframe.getElementById('dcs-tomorrow-date').innerText = nextDayDisplayDate;
+  }
+
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
 
@@ -28,6 +37,7 @@
     iframe.src = getIframeSrc();
     iframe.frameBorder = 0;
     iframe.allowTransparency = true;
+    iframe.onload = onIframeLoad;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
@@ -42,6 +52,13 @@
     const day = date.getDate();
 
     return (year === y && month === m && day === d);
+  }
+
+  function monthName(monthIndex) {
+    var months = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    return months[monthIndex];
   }
 
   function maximize() {
