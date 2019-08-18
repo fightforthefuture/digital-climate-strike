@@ -30,10 +30,16 @@ function postMessage(action, data) {
   window.parent.postMessage(data, '*')
 }
 
-function closeWindow(event) {
+function handleCloseButtonClick(event) {
   event.preventDefault()
   event.stopPropagation()
-  postMessage('closeWindow')
+  postMessage('closeButtonClicked')
+}
+
+function handleJoinStrikeButtonClick(event) {
+  event.preventDefault()
+  event.stopPropagation()
+  postMessage('buttonClicked')
 }
 
 function attachEvent(selector, event, callback) {
@@ -47,7 +53,8 @@ function initializeInterface() {
 
   const query = parseQuery(location.search)
 
-  attachEvent('.dcs-close', 'click', closeWindow)
+  attachEvent('.dcs-close', 'click', handleCloseButtonClick)
+  attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
   if (query.fullPage) {
     maximize()
