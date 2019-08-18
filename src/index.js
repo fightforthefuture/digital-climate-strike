@@ -60,7 +60,7 @@ function initializeInterface() {
 
   attachEvent('.dcs-close', 'click', closeWindow)
 
-  const isDayOfAction = todayIs(2019, 8, 17)
+  const isDayOfAction = todayIs(2019, 8, 28)
 
   if (query.fullPage || isDayOfAction) {
     maximize()

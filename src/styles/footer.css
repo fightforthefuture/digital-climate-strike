@@ -39,7 +39,7 @@
 
 .dcs-footer__body {
   color: var(--grey);
-  font: 700 1rem/1.4rem 'Katwijk', Courier, sans-serif;
+  font: 700 .875rem/1rem 'Katwijk', Courier, sans-serif;
   max-width: 26rem;
 }
 
@@ -69,14 +69,14 @@
   }
 
   .dcs-footer__body {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
     max-width: none;
   }
 
   .dcs-footer__action {
     display: inline-block;
-    margin: 0;
+    margin: 0 0 0 1rem;
   }
 }
 
