@@ -4,8 +4,18 @@
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
+  var websiteName = window.WEBSITE_NAME || null;
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://globalclimatestrike.net';
   var forceFullPageWidget = !!options.forceFullPageWidget;
+
+  function setWebsiteName() {
+    if (websiteName) {
+      var websiteNameEls = document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByClassName('dcs-website-name');
+      for (var i = 0; i < websiteNameEls.length; i++) {
+        websiteNameEls[i].innerText = websiteName;
+      }
+    }
+  }
 
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
@@ -24,6 +34,7 @@
     iframe.src = getIframeSrc();
     iframe.frameBorder = 0;
     iframe.allowTransparency = true;
+    iframe.onload = setWebsiteName;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
