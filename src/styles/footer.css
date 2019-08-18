@@ -4,6 +4,7 @@
   background-color: var(--green);
   bottom: 0;
   box-shadow: 0 0 1.6rem rgba(0, 0, 0, 0.2);
+  font-family: 'Katwijk Bold';
   left: 0;
   padding: 1.25rem 1.25rem 2rem;
   position: fixed;
@@ -39,7 +40,7 @@
 
 .dcs-footer__body {
   color: var(--grey);
-  font: 700 .875rem/1rem 'Katwijk', Courier, sans-serif;
+  font: normal .875rem/1rem 'Katwijk Bold', Courier, sans-serif;
   max-width: 26rem;
 }
 
