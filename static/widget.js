@@ -11,7 +11,7 @@
     var src = iframeHost + '/index.html?';
 
     if (forceFullPageWidget) {
-      src += 'fullPage=true&';
+      src += 'forceFullPageWidget=true&';
     }
 
     return src.replace(/(\?|&)$/, '');

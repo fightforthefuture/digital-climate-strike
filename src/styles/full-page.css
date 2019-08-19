@@ -4,7 +4,7 @@
   align-items: center;
   background-color: var(--green);
   bottom: 0;
-  color: var(--black);
+  color: var(--grey);
   display: none;
   justify-content: center;
   left: 0;
@@ -33,15 +33,15 @@
 
 .dcs-full-page__logo {
   margin: 0 auto;
-  width: 4.7rem;
+  width: 5.7rem;
 }
 
 .dcs-full-page__body {
   margin: 2.25rem auto 0;
 }
 
-.dcs-full-page__body p {
-  font: normal 2.2rem/2.5rem "Greve";
+.dcs-full-page__body h1 {
+  font: normal 3.2rem/3.5rem "Greve";
 }
 
 .dcs-full-page__action {

@@ -68,8 +68,7 @@ function initializeInterface() {
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
   const isDayOfAction = todayIs(2019, 9, 20)
-
-  if (query.fullPage || isDayOfAction) {
+  if (query.forceFullPageWidget || isDayOfAction) {
     maximize()
   }
 }
