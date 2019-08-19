@@ -1,55 +1,18 @@
 /* Full page styles */
-.sc-dcs {
-  font-family: 'Katwijk Bold', monospace;
-  color: var(--grey);
-}
-
-.sc-dcs h1, .sc-dcs h2 {
-  font-family: 'Greve', 'Impact', sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--grey);
-}
-
-.sc-dcs h1 {
-  font-size: 4rem;
-}
-
-.sc-dcs a {
-  color: var(--grey);
-}
-
-.sc-dcs img {
-  max-width: 100%;
-}
-
-.sc-dcs .h-center {
-  text-align: center !important;
-}
-
-.dcs-mobile-only {
-  display: none;
-}
-
-.dcs-small-text {
-  font-size: 0.5em;
-}
-
-.dcs-logo--med {
-  max-height: 160px;
-}
 
 .dcs-full-page {
+  align-items: center;
   background-color: var(--green);
-  position: absolute;
-  width: 100%;
-  top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  color: var(--black);
   display: none;
   justify-content: center;
-  align-items: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .dcs-full-page__container {
@@ -64,55 +27,38 @@
   width: 2.5rem;
 }
 
-.dcs-full-page__button {
-  display: inline-block;
-  background-color: var(--white);
-  color: var(--black);
-  text-decoration: none;
-  box-shadow: 0.3rem 0.3rem 0 var(--black);
-  font-weight: normal;
-  font-family: 'Katwijk Bold', 'Courier New',Courier,monospace;
-  font-size: 1rem;
-  letter-spacing: calc(0.07rem - 0.01em);
-  text-transform: uppercase;
-  border-radius: 0;
-  padding: 1rem 1.5rem;
-  white-space: nowrap;
-}
-
 .dcs-full-page__main {
-  display: flex;
-  flex-wrap: nowrap;
-}
-.dcs-full-page__logos {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.dcs-full-page__logo {
-  padding: 1em;
-  flex-basis: 40%;
-  flex-shrink: 1;
+  padding: 1rem;
 }
 
-.dcs-full-page__details {
-  padding: 1rem;
-  flex-basis: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.dcs-full-page__logo {
+  margin: 0 auto;
+  width: 4.7rem;
 }
+
 .dcs-full-page__body {
-  font-weight: bold;
-  font-size: 2rem;
+  margin: 36px auto 0;
 }
 
 .dcs-full-page__body p {
-  margin-top: 0;
+  font: normal 35px/40px "Greve";
 }
+
 .dcs-full-page__action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 20px auto 0;
 }
 
+.dcs-full-page__footer {
+  bottom: 0;
+  font: 400 10px/13px 'Katwijk Bold', monospace;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
 
+.dcs-full-page__footer small {
+  display: inline-block;
+  max-width: 250px;
+  margin: 3rem auto;
+}
