@@ -13,6 +13,14 @@ function maximize() {
   fullPage.style.display = 'flex'
 }
 
+function showCloseButtonOnFullPageWidget() {
+  const fullPageCloseButton = document.querySelector('.dcs-full-page__close')
+  fullPageCloseButton.style.display = 'flex'
+
+  const fullPageFooter = document.querySelector('.dcs-full-page__footer')
+  fullPageFooter.style.display = 'none'
+}
+
 function todayIs(y, m, d) {
   const date = new Date()
   const offset = 4 // EDT
@@ -67,8 +75,11 @@ function initializeInterface() {
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
-  const isDayOfAction = todayIs(2019, 9, 20)
+  if (query.showCloseButtonOnFullPageWidget) {
+    showCloseButtonOnFullPageWidget()
+  }
 
+  const isDayOfAction = todayIs(2019, 9, 20)
   if (query.forceFullPageWidget || isDayOfAction) {
     maximize()
   }

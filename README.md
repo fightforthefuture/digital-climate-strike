@@ -47,16 +47,25 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
      * one day.
      */
     cookieExpirationDays: 1, // @type {number}
-    
+    /**
+     * Allow you to override the iFrame hostname. Defaults to https://assets.digitalclimatestrike.net  
+     */
+    iframeHost: 'https://assets.digitalclimatestrike.net', // @type {string}
     /**
      * Always show the widget. Useful for testing. Defaults to false.
      */
     alwaysShowWidget: false, // @type {boolean}
 
     /**
-     * Automatically makes the widget full page Defaults to false.
+     * Automatically makes the widget full page. Defaults to false.
      */
-    forceFullPageWidget: false // @type {boolean}
+    forceFullPageWidget: false, // @type {boolean}
+    
+    /**
+    * For the full page widget, shows a close button "x" and hides the message about the site being 
+    * available tomorrow. Defaults to false.
+    */
+    showCloseButtonOnFullPageWidget: false // @type {boolean}
   };
 </script>
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>
