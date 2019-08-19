@@ -1,10 +1,16 @@
-header:
-  why: 'Why am I seeing this?'
-body:
-  description: 'Our website is on strike with the Global #ClimateStrike today.'
-  info: 'You’ll be able to access this website tomorrow, September 21'
-  join: 'Join the strike →'
-  why: 'Learn why'
+full_page:
+  our: Our
+  the: The
+  website: website
+  is: is
+  joining: joining the global
+  today: '#ClimateStrike today.'
+  will_you: Will you?
+  small: You’ll be able to access this website tomorrow,
+  strike_end_date: September 21
+  button: I'm ready. ➔
 footer:
-  description: 'Get ready for the #ClimateStrike on September 20. We’ll be participating in solidarity.'
-  join: 'Join the strike →'
+  body: 'Our website will join the Global #ClimateStrike on'
+  strike_date: September 20
+  will_you: Will you?
+  button: I'm ready. ➔

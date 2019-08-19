@@ -1,9 +1,16 @@
-header:
-  why: 'Por que estoy viendo este mensaje?'
-body:
-  description: 'Hoy nos hemos unido a la huelga #ClimateStrike .'
-  info: 'Podras acceder de nuevo a la web a partir del proximo 21 de Septiembre'
-  join: 'Unete a la huelga →'
+full_page:
+  our:
+  the:
+  website:
+  is:
+  joining:
+  today:
+  will_you:
+  small:
+  strike_end_date:
+  button:
 footer:
-  description: 'Preparate para la huelga #ClimateStrike el proximo 20 de Septiembre. Nosotros tambien nos solidarizamos.'
-  join: 'Unete a la huelga →'
+  body:
+  strike_date:
+  will_you:
+  button:

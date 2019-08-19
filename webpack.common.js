@@ -7,6 +7,9 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const path = require('path')
 const handlebars = require('handlebars')
+const showdown = require('showdown')
+const md = new showdown.Converter()
+
 
 function formatStrings(data, isMarkdown=false) {
   let parsedData = cloneDeep(data)
@@ -90,7 +93,15 @@ module.exports = {
               hmr: process.env.NODE_ENV === 'development',
             },
           },
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: __dirname + '/postcss.config.js'
+              }
+            },
+          },
         ],
       },
       {
