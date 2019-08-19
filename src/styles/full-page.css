@@ -20,6 +20,7 @@
 }
 
 .dcs-full-page__close {
+  display: none; /* The full page close button can be configured to display: 'flex'.*/
   height: 2.5rem;
   position: absolute;
   right: 0;
