@@ -9,9 +9,17 @@
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
   var alwaysShowWidget = !!(options.alwaysShowWidget || window.location.hash.indexOf('ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE') !== -1);
+  var language = getLanguage();
 
   function getIframeSrc() {
-    var src = iframeHost + '/index.html?';
+    var src = iframeHost;
+
+    if (language === 'en') {
+      src += '/?';
+    }
+    else {
+      src += '/index-' + language + '.html?';
+    }
 
     if (forceFullPageWidget) {
       src += 'forceFullPageWidget=true&';
@@ -30,6 +38,17 @@
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
+  }
+
+  function getLanguage() {
+    var language = 'en';
+
+    // spanish is specified or no language is set and browser is set to spanish
+    if (options.language === 'es' || (!options.language && navigator && navigator.language.match(/^es/))) {
+      language = 'es';
+    }
+
+    return language;
   }
 
   function maximize() {
