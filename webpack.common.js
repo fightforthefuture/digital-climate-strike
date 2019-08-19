@@ -44,7 +44,15 @@ module.exports = {
               hmr: process.env.NODE_ENV === 'development',
             },
           },
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: __dirname + '/postcss.config.js'
+              }
+            },
+          },
         ],
       },
       {
