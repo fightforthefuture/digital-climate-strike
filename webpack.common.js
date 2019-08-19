@@ -2,9 +2,31 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+const cloneDeep = require('lodash/cloneDeep')
+const fs = require('fs')
+const yaml = require('js-yaml')
 const path = require('path')
 const handlebars = require('handlebars')
+
+function formatStrings(data, isMarkdown=false) {
+  let parsedData = cloneDeep(data)
+
+  if (Array.isArray(data)) {
+    parsedData = data.map(formatStrings)
+  }
+  else if (typeof(data) === 'object') {
+    for (let key of Object.keys(data)) {
+      if (data[key]) {
+        parsedData[key] = formatStrings(data[key], key.match(/_html$/))
+      }
+    }
+  }
+  else if (isMarkdown) {
+    parsedData = md.makeHtml(data)
+  }
+
+  return parsedData
+}
 
 function loadStrings(languageCode) {
   const stringsFile = path.resolve(__dirname, 'src', 'translations', `${languageCode}.yml`)
@@ -94,7 +116,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HandlebarsPlugin(),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       inlineSource: '.(js|css)$',
@@ -107,6 +128,7 @@ module.exports = {
       filename: 'app.[hash].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
-    })
+    }),
+    new HandlebarsPlugin(),
   ]
 };
