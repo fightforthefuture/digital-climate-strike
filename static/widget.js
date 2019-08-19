@@ -5,7 +5,7 @@
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
-  var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://globalclimatestrike.net';
+  var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
   var alwaysShowWidget = !!(options.alwaysShowWidget || window.location.hash.indexOf('ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE') !== -1);
@@ -41,6 +41,10 @@
     document.getElementById(DOM_ID).remove();
     window.removeEventListener('message', receiveMessage);
     setCookie(closedCookie, 'true', cookieExpirationDays);
+  }
+
+  function navigateToLink() {
+    document.location ='https://globalclimatestrike.net';
   }
 
   function injectCSS(id, css) {
@@ -85,8 +89,10 @@
     switch (event.data.action) {
       case 'maximize':
         return maximize();
-      case 'closeWindow':
+      case 'closeButtonClicked':
         return closeWindow();
+      case 'buttonClicked':
+        return navigateToLink();
     }
   }
 
