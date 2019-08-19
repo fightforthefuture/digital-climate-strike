@@ -65,7 +65,21 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
     * For the full page widget, shows a close button "x" and hides the message about the site being 
     * available tomorrow. Defaults to false.
     */
-    showCloseButtonOnFullPageWidget: false // @type {boolean}
+    showCloseButtonOnFullPageWidget: false, // @type {boolean}
+    
+    /**
+     * The date when the sticky footer widget should start showing on your web site.
+     * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
+     * Defaults to new Date() (Today).
+     */
+    footerDisplayStartDate: new Date() //@ type {Date object}
+    
+    /**
+     * The date when the full page widget should showing on your web site for 24 hours. 
+     * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
+     * Defaults to new Date(2019, 8, 20) (September 20th, 2019)
+     */
+    fullPageDisplayStartDate: new Date(2019, 8, 20) //@ type {Date object}
   };
 </script>
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>

@@ -1,25 +1,25 @@
 (function() {
   'use strict';
   var DOM_ID = 'DIGITAL_CLIMATE_STRIKE';
-  var closedCookie = '_DIGITAL_CLIMATE_STRIKE_WIDGET_CLOSED_';
+  var CLOSED_COOKIE = '_DIGITAL_CLIMATE_STRIKE_WIDGET_CLOSED_';
   var NOW = new Date();
   var MS_PER_DAY = 86400000;
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
-  var footerDate = window.FOOTER_DISPLAY_START_DATE || new Date(2019, 8, 1);    // September 1st, 2019
-  var fullscreenDate = window.FULL_PAGE_DISPLAY_DATE || new Date(2019, 8, 20);  // September 20th, 2019
+  var footerDisplayStartDate = options.footerDisplayStartDate || new Date();                                   // Today
+  var fullPageDisplayStartDate = options.fullPageDisplayStartDate || new Date(2019, 8, 20);  // September 20th, 2019
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
   var alwaysShowWidget = !!(options.alwaysShowWidget || window.location.hash.indexOf('ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE') !== -1);
   var showCloseButtonOnFullPageWidget = !!options.showCloseButtonOnFullPageWidget;
 
   function onIframeLoad() {
-    var fullscreenDisplayDate = monthName(fullscreenDate.getMonth()) + ' ' + fullscreenDate.getDate();
-    var nextDay = new Date(fullscreenDate.getFullYear(), fullscreenDate.getMonth(), fullscreenDate.getDate() + 1);
+    var fullscreenDisplayDate = monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate();
+    var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
     var nextDayDisplayDate = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
-    var iframe = document.getElementsByTagName('iframe')[0].contentWindow.document;
+    var iframe = document.getElementById(DOM_ID).getElementsByTagName('iframe')[0].contentWindow.document;
     iframe.getElementById('dcs-strike-date').innerText = fullscreenDisplayDate;
     iframe.getElementById('dcs-tomorrow-date').innerText = nextDayDisplayDate;
   }
@@ -27,7 +27,7 @@
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
 
-    if (forceFullPageWidget || todayIs(fullscreenDate.getFullYear(), fullscreenDate.getMonth() + 1, fullscreenDate.getDate())) {
+    if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
       src += 'forceFullPageWidget=true&';
     }
 
@@ -64,7 +64,7 @@
 
   function monthName(monthIndex) {
     var months = [
-      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
     ];
     return months[monthIndex];
   }
@@ -77,7 +77,7 @@
   function closeWindow() {
     document.getElementById(DOM_ID).remove();
     window.removeEventListener('message', receiveMessage);
-    setCookie(closedCookie, 'true', cookieExpirationDays);
+    setCookie(CLOSED_COOKIE, 'true', cookieExpirationDays);
   }
 
   function navigateToLink() {
@@ -133,26 +133,36 @@
     }
   }
 
+  /**
+   * There are a few circumstances when the iFrame should not be shown:
+   * 1. When the CLOSED_COOKIE has been set on that device
+   * 2. We haven't reached either display start date
+   * 3. We're past the date to display the full screen widget.
+   * 4. We haven't set alwaysShowWidget to be true in the config.
+   */
+  function iFrameShouldNotBeShown() {
+    return (footerDisplayStartDate > NOW && fullPageDisplayStartDate > NOW)
+      || new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY) < NOW
+      || !!getCookie(CLOSED_COOKIE)
+      && !alwaysShowWidget;
+  }
+
   function initializeInterface() {
-    // If we haven't reached either display date, or we're past the day where we displayed the
-    // fullscreen widget, don't show the iframe
-    if ((footerDate > NOW && fullscreenDate > NOW) || new Date(fullscreenDate.getTime() + MS_PER_DAY) < NOW) {
+    if (iFrameShouldNotBeShown()) {
       return;
     }
 
-    if (alwaysShowWidget || !getCookie(closedCookie)) {
-      createIframe();
+    createIframe();
 
-      var iFrameHeight = getIframeHeight();
+    var iFrameHeight = getIframeHeight();
 
-      injectCSS('DIGITAL_STRIKE_CSS',
-        '#' + DOM_ID + ' { position: fixed; right: 0; left: 0; bottom: 0px; width: 100%; height: ' + iFrameHeight + '; z-index: 20000; -webkit-overflow-scrolling: touch; overflow: hidden; } ' +
-        '#' + DOM_ID + ' iframe { width: 100%; height: 100%; }'
-      );
+    injectCSS('DIGITAL_STRIKE_CSS',
+      '#' + DOM_ID + ' { position: fixed; right: 0; left: 0; bottom: 0px; width: 100%; height: ' + iFrameHeight + '; z-index: 20000; -webkit-overflow-scrolling: touch; overflow: hidden; } ' +
+      '#' + DOM_ID + ' iframe { width: 100%; height: 100%; }'
+    );
 
-      // listen for messages from iframe
-      window.addEventListener('message', receiveMessage);
-    }
+    // listen for messages from iframe
+    window.addEventListener('message', receiveMessage);
 
     document.removeEventListener('DOMContentLoaded', initializeInterface);
   }
