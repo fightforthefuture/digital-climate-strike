@@ -22,11 +22,11 @@ If you have any problems or questions regarding the widget, please [submit an is
 
 When you add [**widget.js**](https://github.com/global-climate-strikes/digital-climate-strike/blob/master/static/widget.js) to your site it will show a footer banner informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike: 
 
-TO ADD: Screen shot of footer banner. 
+![A screenshot of the Digital Climate Strike footer widget](http://assets.digitalclimatestrike.net/desktop-pre-strike-banner.png)
 
 Then at midnight on September 20th for 24 hours, the banner will expand to be full screen, showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:   
 
-TO ADD: Screen shot of full page banner. 
+![A screenshot of the Digital Climate Strike full page widget](http://assets.digitalclimatestrike.net/desktop-full-shutdown.png) 
 
 The widget is designed to appear once per user, per device, per day, but can be configured to display at a different interval. If you'd like to force it to show up on your page for testing, reload the page with `#ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE` at the end of the URL.
 
