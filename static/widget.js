@@ -37,7 +37,7 @@
     }
 
     if (websiteName) {
-      src += 'websiteName=' + websiteName;
+      src += 'websiteName=' + encodeURI(websiteName);
     }
 
     return src.replace(/(\?|&)$/, '');

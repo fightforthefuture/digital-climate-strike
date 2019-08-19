@@ -64,6 +64,10 @@
   margin: 3rem auto;
 }
 
+.dcs-website-name__prefix {
+  display: none;
+}
+
 @media(min-width: 900px) {
   .dcs-full-page__footer {
     font-size: .875rem;
