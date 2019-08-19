@@ -4,7 +4,7 @@
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
-  var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://globalclimatestrike.net';
+  var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
   var forceFullPageWidget = !!options.forceFullPageWidget;
 
   function getIframeSrc() {
