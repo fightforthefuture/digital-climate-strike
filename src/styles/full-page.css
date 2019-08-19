@@ -37,15 +37,15 @@
 }
 
 .dcs-full-page__body {
-  margin: 36px auto 0;
+  margin: 2.25rem auto 0;
 }
 
 .dcs-full-page__body p {
-  font: normal 35px/40px "Greve";
+  font: normal 2.2rem/2.5rem "Greve";
 }
 
 .dcs-full-page__action {
-  margin: 20px auto 0;
+  margin: 1.25rem auto 0;
 }
 
 .dcs-full-page__footer {
@@ -59,6 +59,13 @@
 
 .dcs-full-page__footer small {
   display: inline-block;
-  max-width: 250px;
+  max-width: 15.6rem;
   margin: 3rem auto;
+}
+
+@media(min-width: 900px) {
+  .dcs-full-page__footer {
+    font-size: .875rem;
+    line-height: 1.4;
+  }
 }
