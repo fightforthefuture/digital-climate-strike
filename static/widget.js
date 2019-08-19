@@ -97,7 +97,7 @@
   }
 
   function initializeInterface() {
-    console.log(!getCookie(closedCookie))
+
     if (alwaysShowWidget || !getCookie(closedCookie)) {
       createIframe();
 
