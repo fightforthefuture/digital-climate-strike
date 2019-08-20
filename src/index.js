@@ -84,12 +84,38 @@ function initGoogleAnalytics() {
   }
 }
 
+function addTrackingEvents(hostname) {
+  // attachEvent('.dcs-button', 'click', () => trackEvent('join_button', 'click', hostname))
+  attachEvent('.dcs-close', 'click', () => trackEvent('close_button', 'click', hostname))
+}
+
+// send event to Google Analytics
+function trackEvent(category, action, label, value) {
+  if (!window.googleAnalytics) return
+
+  const params = {
+    hitType: 'event',
+    eventCategory: category,
+    eventAction: action
+  }
+
+  if (label) {
+    params.eventLabel = label
+  }
+
+  if (value) {
+    params.eventValue = value
+  }
+  console.log(params)
+  window.googleAnalytics('send', params)
+}
+
 function initializeInterface() {
 
   const query = parseQuery(location.search)
 
-  attachEvent('.dcs-close', 'click', handleCloseButtonClick)
-  attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
+  // attachEvent('.dcs-close', 'click', handleCloseButtonClick)
+  // attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()
@@ -100,7 +126,8 @@ function initializeInterface() {
   }
 
   if (isTruthy(query.googleAnalytics) && !navigator.doNotTrack) {
-    initGoogleAnalytics();
+    initGoogleAnalytics()
+    addTrackingEvents(query.hostname)
   }
 
   if (query.forceFullPageWidget) {

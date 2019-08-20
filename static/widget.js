@@ -29,6 +29,8 @@
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
 
+    src += 'hostname=' + window.location.host + '&';
+
     if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
       src += 'forceFullPageWidget=true&';
     }
@@ -44,7 +46,6 @@
     if (websiteName) {
       src += 'websiteName=' + encodeURI(websiteName);
     }
-
     return src.replace(/(\?|&)$/, '');
   }
 
