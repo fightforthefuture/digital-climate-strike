@@ -14,6 +14,7 @@
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
   var alwaysShowWidget = !!(options.alwaysShowWidget || window.location.hash.indexOf('ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE') !== -1);
+  var disableGoogleAnalytics = !!options.disableGoogleAnalytics;
   var showCloseButtonOnFullPageWidget = !!options.showCloseButtonOnFullPageWidget;
 
   function onIframeLoad() {
@@ -28,12 +29,18 @@
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
 
+    src += 'hostname=' + window.location.host + '&';
+
     if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
       src += 'forceFullPageWidget=true&';
     }
 
     if (showCloseButtonOnFullPageWidget) {
       src += 'showCloseButtonOnFullPageWidget=true&';
+    }
+
+    if (disableGoogleAnalytics) {
+      src += 'googleAnalytics=false&';
     }
 
     if (websiteName) {
