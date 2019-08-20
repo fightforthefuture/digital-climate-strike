@@ -22,6 +22,14 @@ $ npm run dev
 $ npm run build
 ```
 
+## Linting
+
+We have basic linting configured to run on `src/index.js` as part of the Travis CI build. You can check this locally before pushing with:
+
+```
+$ npm run lint
+```
+
 ## Automated Deploys
 
 [TravisCI](https://travis-ci.com/global-climate-strikes/digital-climate-strike/branches) is set up to build the widget and upload it to Google Cloud Storage on every commit to the master branch.
