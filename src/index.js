@@ -32,6 +32,10 @@ function handleCustomWebsiteName(websiteName) {
   websiteNameText.innerHTML = decodeURI(websiteName)
 }
 
+function isTruthy(str) {
+  return typeof(str) === 'undefined' || `${str}` === 'true' || `${str}` === '1'
+}
+
 function parseQuery(queryString) {
   var query = {}
   var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&')
@@ -68,12 +72,50 @@ function attachEvent(selector, event, callback) {
   }
 }
 
+function initGoogleAnalytics() {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','googleAnalytics')
+
+  if (typeof googleAnalytics !== 'undefined') {
+    googleAnalytics('create', 'UA-145982710-1', 'auto')
+    googleAnalytics('send', 'pageview')
+  }
+}
+
+function addTrackingEvents(hostname) {
+  // attachEvent('.dcs-button', 'click', () => trackEvent('join_button', 'click', hostname))
+  attachEvent('.dcs-close', 'click', () => trackEvent('close_button', 'click', hostname))
+}
+
+// send event to Google Analytics
+function trackEvent(category, action, label, value) {
+  if (!window.googleAnalytics) return
+
+  const params = {
+    hitType: 'event',
+    eventCategory: category,
+    eventAction: action
+  }
+
+  if (label) {
+    params.eventLabel = label
+  }
+
+  if (value) {
+    params.eventValue = value
+  }
+  console.log(params)
+  window.googleAnalytics('send', params)
+}
+
 function initializeInterface() {
 
   const query = parseQuery(location.search)
 
-  attachEvent('.dcs-close', 'click', handleCloseButtonClick)
-  attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
+  // attachEvent('.dcs-close', 'click', handleCloseButtonClick)
+  // attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()
@@ -81,6 +123,11 @@ function initializeInterface() {
 
   if (query.websiteName) {
     handleCustomWebsiteName(query.websiteName)
+  }
+
+  if (isTruthy(query.googleAnalytics) && !navigator.doNotTrack) {
+    initGoogleAnalytics()
+    addTrackingEvents(query.hostname)
   }
 
   if (query.forceFullPageWidget) {
