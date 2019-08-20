@@ -17,20 +17,24 @@
             </div>
             <div class="dcs-full-page__body">
               <h1>
-                <span class="dcs-website-name__default">{{ full_page.our }}</span>
-                <span class="dcs-website-name__prefix">{{ full_page.the }}</span>
+                {{#with full_page_html }}
+                  {{{ our }}}
+                <span class="dcs-website-name__prefix">{{ the }}</span>
                 <span class="dcs-website-name"></span>
-                <span class="dcs-website-name__website">{{ full_page.website }}</span>
-                {{ full_page.is }}<br/>{{ full_page.joining }}<br/>{{ full_page.today }}<br/>{{ full_page.will_you }}
+                  {{{ website }}}
+                  {{{ is }}} {{{ joining }}} {{{ today }}} {{{ will_you }}}
+                {{/with}}
               </h1>
               <div class="dcs-full-page__action">
                 <a href="https://globalclimatestrike.net" class="dcs-button">
-                  {{ full_page.button }}
-                </a>
+                {{ full_page_html.button }}
+              </a>
               </div>
             </div>
             <div class="dcs-full-page__footer">
-              <small>{{ full_page.small }} <span id="dcs-tomorrow-date">{{ full_page.strike_end_date }}</span>.</small>
+              {{#with full_page_html}}
+              <small>{{ small }} {{{ strike_end_date }}} .</small>
+              {{/with}}
             </div>
           </div>
         </div>
@@ -43,16 +47,18 @@
         </a>
         <div class="dcs-footer__main">
           <div class="dcs-footer__body">
-            {{ footer.body }} <span id="dcs-strike-date">{{ footer.strike_date }}</span>. {{ footer.will_you }}
+            {{#with footer_html}}
+            {{ body }} {{{ strike_date }}}. {{ will_you }}
+            {{/with}}
           </div>
           <div class="dcs-footer__action">
             <a href="https://globalclimatestrike.net" class="dcs-button">
-              {{ footer.button }}
+              {{ footer_html.button }}
             </a>
           </div>
         </div>
         <div class="dcs-footer__close">
-          <a class="dcs-close" href="#"><span class="dcs-sr-only">Close</span></a>
+          <a class="dcs-close" href="#"><span class="dcs-sr-only">{{footer_html.close}}</span></a>
         </div>
       </div>
     </footer>

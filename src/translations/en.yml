@@ -1,16 +1,18 @@
-full_page:
-  our: Our
+full_page_html:
+  our: '<span class="dcs-website-name__default">Our</span>'
   the: The
-  website: website
-  is: is
-  joining: joining the global
-  today: '#ClimateStrike today.'
+  website: '<span class="dcs-website-name__website">website</span>'
+  is: 'is<br/>'
+  joining: 'joining<br/>'
+  today: '#ClimateStrike today.<br/>'
   will_you: Will you?
   small: You’ll be able to access this website tomorrow,
-  strike_end_date: September 21
+  strike_end_date: '<span id="dcs-tomorrow-date">September 21</span>'
   button: I'm ready. ➔
-footer:
+
+footer_html:
   body: 'Our website will join the Global #ClimateStrike on'
-  strike_date: September 20
+  strike_date: '<span id="dcs-strike-date">September 20</span>'
   will_you: Will you?
   button: I'm ready. ➔
+  close: Close

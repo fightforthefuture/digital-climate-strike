@@ -76,10 +76,20 @@
   }
 
   function monthName(monthIndex) {
-    var months = [
+    const language = getLanguage();
+
+    const months = [
       'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
     ];
-    return months[monthIndex];
+    const months_es = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+
+    const months_i18n = new Map();
+    months_i18n.set('en',months);
+    months_i18n.set('es',months_es);
+
+    return months_i18n.get(language)[monthIndex];
   }
 
   function getLanguage() {

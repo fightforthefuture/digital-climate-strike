@@ -1,16 +1,18 @@
-full_page:
-  our:
-  the:
-  website:
-  is:
-  joining:
-  today:
-  will_you:
-  small:
-  strike_end_date:
-  button:
-footer:
-  body:
-  strike_date:
-  will_you:
-  button:
+full_page_html:
+  our: '<span class="dcs-website-name__default">Nuestra web</span>'
+  the: La web de
+  website: '<span class="dcs-website-name__website"></span>'
+  is: 'se ha<br/>'
+  joining: 'unido al evento global<br/>'
+  today: '#ClimateStrike.<br/>'
+  will_you: ¿Te unes tu también?
+  small: Podrás volver a acceder a esta web a partir de mañana,
+  strike_end_date: '<span id="dcs-tomorrow-date">21 de Septiembre</span>'
+  button: Quiero participar ➔
+
+footer_html:
+  body: 'Nuestra web se unirá al evento global #ClimateStrike el próximo'
+  strike_date: '<span id="dcs-strike-date">20 de Septiembre</span>'
+  will_you: ¿Te unes tu también?
+  button: Quiero participar ➔
+  close: Cerrar
