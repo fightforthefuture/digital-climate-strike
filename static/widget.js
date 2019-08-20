@@ -57,12 +57,12 @@
   }
 
   function todayIs(y, m, d) {
-    const date = new Date();
-    const offset = 4; // EDT
+    var date = new Date();
+    var offset = 4; // EDT
     date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
 
     return (year === y && month === m && day === d);
   }
