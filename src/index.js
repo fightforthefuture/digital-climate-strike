@@ -93,9 +93,17 @@ function initGoogleAnalytics() {
   }
 }
 
-function addTrackingEvents(hostname) {
-  attachEvent('.dcs-button', 'click', () => trackEvent('join_button', 'click', hostname))
-  attachEvent('.dcs-close', 'click', () => trackEvent('close_button', 'click', hostname))
+function addTrackingEvents(hostname, forceFullPageWidget) {
+  attachEvent('.dcs-footer .dcs-button', 'click', () => trackEvent('footer-join-button', 'click', hostname))
+  attachEvent('.dcs-footer .dcs-close', 'click', () => trackEvent('footer-close-button', 'click', hostname))
+  attachEvent('.dcs-full-page .dcs-button', 'click', () => trackEvent('full-page-join-button', 'click', hostname))
+  attachEvent('.dcs-full-page .dcs-close', 'click', () => trackEvent('full-page-close-button', 'click', hostname))
+
+  if (forceFullPageWidget) {
+    trackEvent('full-page-widget', 'load', hostname)
+  } else {
+    trackEvent('footer-widget', 'load', hostname)
+  }
 }
 
 function trackEvent(category, action, label, value) {
@@ -133,7 +141,7 @@ function initializeInterface() {
 
   if (isTruthy(query.googleAnalytics) && !navigator.doNotTrack) {
     initGoogleAnalytics()
-    addTrackingEvents(query.hostname)
+    addTrackingEvents(query.hostname, query.forceFullPageWidget)
   }
 
   if (query.forceFullPageWidget) {
