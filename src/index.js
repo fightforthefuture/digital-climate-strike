@@ -53,18 +53,6 @@ function postMessage(action, data) {
   window.parent.postMessage(data, '*')
 }
 
-function handleCloseButtonClick(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  postMessage('closeButtonClicked')
-}
-
-function handleJoinStrikeButtonClick(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  postMessage('buttonClicked')
-}
-
 function attachEvent(selector, event, callback) {
   var elements = document.querySelectorAll(selector)
   for (var i = 0; i < elements.length; i++) {
@@ -85,7 +73,7 @@ function initGoogleAnalytics() {
 }
 
 function addTrackingEvents(hostname) {
-  // attachEvent('.dcs-button', 'click', () => trackEvent('join_button', 'click', hostname))
+  attachEvent('.dcs-button', 'click', () => trackEvent('join_button', 'click', hostname))
   attachEvent('.dcs-close', 'click', () => trackEvent('close_button', 'click', hostname))
 }
 
@@ -111,7 +99,6 @@ function trackEvent(category, action, label, value) {
 }
 
 function initializeInterface() {
-
   const query = parseQuery(location.search)
 
   // attachEvent('.dcs-close', 'click', handleCloseButtonClick)
