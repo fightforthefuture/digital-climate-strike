@@ -75,7 +75,7 @@ function handleJoinStrikeButtonClick(event) {
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
-function setJoinStrikeButtonURL(selector) {
+function setGlobalClimateStrikeLinkUrl(selector) {
   const element = document.querySelector(selector)
   element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_LINK_URL)
 }
@@ -134,10 +134,10 @@ function trackEvent(category, action, label, value) {
 function initializeInterface() {
   const query = parseQuery(location.search)
 
-  setJoinStrikeButtonURL('.dcs-footer .dcs-button')
-  setJoinStrikeButtonURL('.dcs-footer__logo')
-  setJoinStrikeButtonURL('.dcs-full-page .dcs-button')
-  setJoinStrikeButtonURL('.dcs-full-page__logo')
+  setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
+  setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
+  setGlobalClimateStrikeLinkUrl('.dcs-full-page .dcs-button')
+  setGlobalClimateStrikeLinkUrl('.dcs-full-page__logo')
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
