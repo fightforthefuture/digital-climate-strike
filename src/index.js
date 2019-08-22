@@ -135,7 +135,9 @@ function initializeInterface() {
   const query = parseQuery(location.search)
 
   setJoinStrikeButtonURL('.dcs-footer .dcs-button')
+  setJoinStrikeButtonURL('.dcs-footer__logo')
   setJoinStrikeButtonURL('.dcs-full-page .dcs-button')
+  setJoinStrikeButtonURL('.dcs-full-page__logo')
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
 
