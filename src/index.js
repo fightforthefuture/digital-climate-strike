@@ -2,7 +2,7 @@ import './main.css'
 
 let isMaximizing = false
 let GOOGLE_ANALYTICS_DELAY_MS = 30
-let JOIN_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
+let GLOBAL_CLIMATE_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
 
 function maximize() {
   if (isMaximizing) return
@@ -71,13 +71,13 @@ function handleJoinStrikeButtonClick(event) {
 
   //adding delay to allow google analytics call to complete
   setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: JOIN_STRIKE_LINK_URL })
+    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
 function setJoinStrikeButtonURL(selector) {
   const element = document.querySelector(selector)
-  element.setAttribute('href', JOIN_STRIKE_LINK_URL)
+  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_LINK_URL)
 }
 
 function attachEvent(selector, event, callback) {
