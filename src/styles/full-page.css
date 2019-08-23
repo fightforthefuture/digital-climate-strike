@@ -35,6 +35,7 @@
 .dcs-full-page__logo {
   margin: 0 auto;
   width: 5.7rem;
+  display: block;
 }
 
 .dcs-full-page__body {

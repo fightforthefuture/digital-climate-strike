@@ -121,8 +121,8 @@
     setCookie(CLOSED_COOKIE, 'true', cookieExpirationDays);
   }
 
-  function navigateToLink() {
-    document.location ='https://globalclimatestrike.net';
+  function navigateToLink(linkUrl) {
+    document.location = linkUrl;
   }
 
   function injectCSS(id, css) {
@@ -170,7 +170,7 @@
       case 'closeButtonClicked':
         return closeWindow();
       case 'buttonClicked':
-        return navigateToLink();
+        return navigateToLink(event.data.linkUrl);
     }
   }
 

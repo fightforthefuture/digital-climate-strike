@@ -8,7 +8,7 @@ This project was inspired by the [Fight for the Future Red Alert widget](https:/
 
 ## How to install the widget on your site
 
-Add this one line of JavaScript to any page, and you're good to go: ([**See the demo!**](https://assets.digitalclimatestrike.net/demo.html))
+Add this one line of JavaScript to any page, and you're good to go:
 
 ```html
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>
@@ -18,13 +18,13 @@ You can change the user experience and do some customization via the `DIGITAL_CL
 
 If you have any problems or questions regarding the widget, please [submit an issue](https://github.com/global-climate-strikes/digital-climate-strike/issues).
 
-## How it works
+## How it works & Demo
 
-When you add [**widget.js**](https://github.com/global-climate-strikes/digital-climate-strike/blob/master/static/widget.js) to your site it will show a footer banner informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike: 
+When you add [**widget.js**](https://github.com/global-climate-strikes/digital-climate-strike/blob/master/static/widget.js) to your site it will show a footer banner ([demo](https://assets.digitalclimatestrike.net/demo.html)) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:
 
 ![A screenshot of the Digital Climate Strike footer widget](http://assets.digitalclimatestrike.net/desktop-pre-strike-banner.png)
 
-Then at midnight on September 20th for 24 hours, the banner will expand to be full screen, showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:   
+Then at midnight on September 20th for 24 hours, the banner will expand to be full screen ([demo](https://assets.digitalclimatestrike.net/demo.html?fullPage)), showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:
 
 ![A screenshot of the Digital Climate Strike full page widget](http://assets.digitalclimatestrike.net/desktop-full-shutdown.png) 
 
