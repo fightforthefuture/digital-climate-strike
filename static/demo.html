@@ -14,7 +14,7 @@
     }
   </style>
   <script>
-    var iframeHost = window.location.toString().indexOf('localhost') !== -1 ? 'http://localhost:8080' : 'https://assets.digitalclimatestrike.net';
+    var iframeHost = window.location.origin;
     var fullPage = window.location.toString().indexOf('fullPage') !== -1;
     var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
       iframeHost: iframeHost,
