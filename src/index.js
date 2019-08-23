@@ -140,6 +140,8 @@ function initializeInterface() {
   setGlobalClimateStrikeLinkUrl('.dcs-full-page__logo')
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
+  attachEvent('.dcs-footer__logo', 'click', handleJoinStrikeButtonClick)
+  attachEvent('.dcs-full-page__logo', 'click', handleJoinStrikeButtonClick)
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()
