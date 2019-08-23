@@ -13,6 +13,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   border: 0;
+  cursor: pointer;
 
   &:hover,
   &:focus {
