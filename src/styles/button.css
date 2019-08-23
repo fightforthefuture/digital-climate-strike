@@ -12,6 +12,7 @@
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  border: 0;
 
   &:hover,
   &:focus {
@@ -29,15 +30,14 @@
   font-size: 1.5rem;
   height: 100%;
   display: inline-block;
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   width: 1rem;
 }
 
-
-@media(min-width: 900px) {
+@media (min-width: 900px) {
   .dcs-button {
     font-size: 1.75rem;
     line-height: 1;
-    padding: .8rem 3rem;
+    padding: 0.8rem 3rem;
   }
 }
