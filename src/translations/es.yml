@@ -1,18 +1,16 @@
-full_page_html:
-  our: '<span class="dcs-website-name__default">Nuestra web</span>'
-  the: La web de
-  website: '<span class="dcs-website-name__website"></span>'
-  is: 'se ha<br/>'
-  joining: 'unido al evento global<br/>'
-  today: '#ClimateStrike.<br/>'
-  will_you: ¿Te unes tu también?
-  small: Podrás volver a acceder a esta web a partir de mañana,
-  strike_end_date: '<span id="dcs-tomorrow-date">21 de Septiembre</span>'
-  button: Quiero participar ➔
+full_page:
+  body: '
+      <h1>
+        <span class="dcs-website-name__default">Nuestra</span>
+        <span class=dcs-website-name__prefix>La</span>
+        <span class=dcs-website-name></span>
+        <span class="dcs-website-name__website">web</span> se<br/> une<br/> al evento #ClimateStrike.<br/> ¿Quieres participar?
+      </h1>'
+  ready:  '<a href=# class=dcs-button> Quiero participar. ➔ </a>'
+  footer: '<small>Podrás volver a acceder a esta web a partir de mañana, <span id="dcs-tomorrow-date">21 de Septiembre</span> .</small>'
 
-footer_html:
-  body: 'Nuestra web se unirá al evento global #ClimateStrike el próximo'
-  strike_date: '<span id="dcs-strike-date">20 de Septiembre</span>'
-  will_you: ¿Te unes tu también?
-  button: Quiero participar ➔
-  close: Cerrar
+footer:
+  body:  'Nuestra web se unirá al evento global #ClimateStrike el próximo <span id="dcs-strike-date">20 de September</span>. ¿Quieres participar?'
+  ready: '<a href=# class=dcs-button> Quiero participar. ➔ </a>'
+
+close: 'Cerrar'

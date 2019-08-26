@@ -8,7 +8,7 @@
     <main class="dcs-full-page">
       <div class="dcs-full-page__container">
         <div class="dcs-full-page__close">
-          <a class="dcs-close" href="#"><span class="dcs-sr-only">Close</span></a>
+          <a class="dcs-close" href="#"><span class="dcs-sr-only">{{close}}</span></a>
         </div>
         <div class="dcs-full-page__main">
           <div class="dcs-full-page__details">
@@ -16,24 +16,12 @@
               <img src="images/dcs-logo.png" class="dcs-logo--med" alt="">
             </a>
             <div class="dcs-full-page__body">
-              <h1>
-                {{#with full_page_html }}
-                  {{{ our }}}
-                <span class="dcs-website-name__prefix">{{ the }}</span>
-                <span class="dcs-website-name"></span>
-                  {{{ website }}}
-                  {{{ is }}} {{{ joining }}} {{{ today }}} {{{ will_you }}}
-                {{/with}}
-              </h1>
-              <div class="dcs-full-page__action">
-                <a href="#" class="dcs-button">
-                  {{ full_page_html.button }}
-                </a>
-              </div>
+              {{#with full_page}}
+                {{{ body }}}
+                {{{ ready }}}
             </div>
             <div class="dcs-full-page__footer">
-              {{#with full_page_html}}
-              <small>{{ small }} {{{ strike_end_date }}} .</small>
+                {{{ footer }}}
               {{/with}}
             </div>
           </div>
@@ -47,18 +35,16 @@
         </a>
         <div class="dcs-footer__main">
           <div class="dcs-footer__body">
-            {{#with footer_html}}
-            {{ body }} {{{ strike_date }}}. {{ will_you }}
-            {{/with}}
+              {{#with footer}}
+                {{{ body }}}
           </div>
           <div class="dcs-footer__action">
-            <a href="#" class="dcs-button">
-              {{ footer_html.button }}
-            </a>
+                {{{ ready }}}
+              {{/with}}
           </div>
         </div>
         <div class="dcs-footer__close">
-          <a class="dcs-close" href="#"><span class="dcs-sr-only">{{footer_html.close}}</span></a>
+          <a class="dcs-close" href="#"><span class="dcs-sr-only">{{close}}</span></a>
         </div>
       </div>
     </footer>

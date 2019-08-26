@@ -1,18 +1,16 @@
-full_page_html:
-  our: '<span class="dcs-website-name__default">Our</span>'
-  the: The
-  website: '<span class="dcs-website-name__website">website</span>'
-  is: 'is<br/>'
-  joining: 'joining<br/>'
-  today: '#ClimateStrike today.<br/>'
-  will_you: Will you?
-  small: You’ll be able to access this website tomorrow,
-  strike_end_date: '<span id="dcs-tomorrow-date">September 21</span>'
-  button: I'm ready. ➔
+full_page:
+  body: '
+      <h1>
+        <span class="dcs-website-name__default">Our</span>
+        <span class=dcs-website-name__prefix>The</span>
+        <span class=dcs-website-name></span>
+        <span class="dcs-website-name__website">website</span> is<br/> joining<br/> #ClimateStrike today.<br/> Will you?
+      </h1>'
+  ready:  '<a href=# class=dcs-button> I&#x27;m ready. ➔ </a>'
+  footer: '<small>You’ll be able to access this website tomorrow, <span id="dcs-tomorrow-date">September 21</span> .</small>'
 
-footer_html:
-  body: 'Our website will join the Global #ClimateStrike on'
-  strike_date: '<span id="dcs-strike-date">September 20</span>'
-  will_you: Will you?
-  button: I'm ready. ➔
-  close: Close
+footer:
+  body:  'Our website will join the Global #ClimateStrike on <span id="dcs-strike-date">September 20</span>. Will you?'
+  ready: '<a href=# class=dcs-button> I&#x27;m ready. ➔ </a>'
+
+close: 'Close'
