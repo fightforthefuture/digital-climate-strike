@@ -59,20 +59,14 @@ function handleCloseButtonClick(event) {
   event.preventDefault()
   event.stopPropagation()
 
-  //adding delay to allow google analytics call to complete
-  setTimeout(() => {
-    postMessage('closeButtonClicked')
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  postMessage('closeButtonClicked')
 }
 
 function handleJoinStrikeButtonClick(event) {
   event.preventDefault()
   event.stopPropagation()
 
-  //adding delay to allow google analytics call to complete
-  setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
@@ -113,22 +107,29 @@ function addTrackingEvents(hostname, forceFullPageWidget) {
 }
 
 function trackEvent(category, action, label, value) {
-  if (!window.ga) return
+  return new Promise((resolve, reject) => {
+    try {
+      if (!window.ga) return
 
-  const params = {
-    hitType: 'event',
-    eventCategory: category,
-    eventAction: action
-  }
+      const params = {
+        hitType: 'event',
+        eventCategory: category,
+        eventAction: action
+      }
 
-  if (label) {
-    params.eventLabel = label
-  }
+      if (label) {
+        params.eventLabel = label
+      }
 
-  if (value) {
-    params.eventValue = value
-  }
-  window.ga('send', params)
+      if (value) {
+        params.eventValue = value
+      }
+      window.ga('send', params)
+      resolve(true)
+    } catch(e){
+      reject("GA call failed: " + e)
+    }
+  })
 }
 
 function initializeInterface() {
