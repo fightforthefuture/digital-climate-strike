@@ -2,14 +2,14 @@
   'use strict';
   var DOM_ID = 'DIGITAL_CLIMATE_STRIKE';
   var CLOSED_COOKIE = '_DIGITAL_CLIMATE_STRIKE_WIDGET_CLOSED_';
-  var NOW = new Date();
+  var NOW = new Date().getTime();
   var MS_PER_DAY = 86400000;
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
   var websiteName = options.websiteName || null;
-  var footerDisplayStartDate = options.footerDisplayStartDate || new Date();                                   // Today
+  var footerDisplayStartDate = options.footerDisplayStartDate || new Date();                 // Today
   var fullPageDisplayStartDate = options.fullPageDisplayStartDate || new Date(2019, 8, 20);  // September 20th, 2019
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
@@ -17,37 +17,25 @@
   var disableGoogleAnalytics = !!options.disableGoogleAnalytics;
   var showCloseButtonOnFullPageWidget = !!options.showCloseButtonOnFullPageWidget;
 
-  function onIframeLoad() {
-    var fullscreenDisplayDate = monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate();
-    var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
-    var nextDayDisplayDate = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
-    var iframe = document.getElementById(DOM_ID).getElementsByTagName('iframe')[0].contentWindow.document;
-    iframe.getElementById('dcs-strike-date').innerText = fullscreenDisplayDate;
-    iframe.getElementById('dcs-tomorrow-date').innerText = nextDayDisplayDate;
-  }
-
   function getIframeSrc() {
     var src = iframeHost + '/index.html?';
 
-    src += 'hostname=' + window.location.host + '&';
+    var urlParams = [
+      ['hostname', window.location.host],
+      ['footerDisplayStartDate', footerDisplayStartDate.toISOString()],
+      ['fullPageDisplayStartDate', fullPageDisplayStartDate.toISOString()]
+    ];
 
-    if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
-      src += 'forceFullPageWidget=true&';
-    }
+    forceFullPageWidget && urlParams.push(['forceFullPageWidget', 'true']);
+    showCloseButtonOnFullPageWidget && urlParams.push('showCloseButtonOnFullPageWidget', 'true');
+    disableGoogleAnalytics && urlParams.push('googleAnalytics', 'false');
+    websiteName && urlParams.push('websiteName', encodeURI(websiteName));
 
-    if (showCloseButtonOnFullPageWidget) {
-      src += 'showCloseButtonOnFullPageWidget=true&';
-    }
+    var params = urlParams.map(function(el) {
+      return el.join('=');
+    });
 
-    if (disableGoogleAnalytics) {
-      src += 'googleAnalytics=false&';
-    }
-
-    if (websiteName) {
-      src += 'websiteName=' + encodeURI(websiteName);
-    }
-
-    return src.replace(/(\?|&)$/, '');
+    return src + params.join('&');
   }
 
   function createIframe() {
@@ -57,28 +45,9 @@
     iframe.src = getIframeSrc();
     iframe.frameBorder = 0;
     iframe.allowTransparency = true;
-    iframe.onload = onIframeLoad;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
-  }
-
-  function todayIs(y, m, d) {
-    var date = new Date();
-    var offset = 4; // EDT
-    date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-
-    return (year === y && month === m && day === d);
-  }
-
-  function monthName(monthIndex) {
-    var months = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    return months[monthIndex];
   }
 
   function maximize() {
@@ -153,7 +122,7 @@
    * 4. We haven't set alwaysShowWidget to be true in the config.
    */
   function iFrameShouldNotBeShown() {
-    return (footerDisplayStartDate > NOW && fullPageDisplayStartDate > NOW)
+    return (footerDisplayStartDate.getTime() > NOW && fullPageDisplayStartDate.getTime() > NOW)
       || new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY) < NOW
       || !!getCookie(CLOSED_COOKIE)
       && !alwaysShowWidget;
