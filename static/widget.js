@@ -213,7 +213,7 @@
     var isProbablyMobile = window.innerWidth < 600;
 
     if (isProbablyMobile) {
-      return '175px';
+      return '200px';
     } else {
       return '145px';
     }
