@@ -1,7 +1,6 @@
 import './main.css'
 
 let isMaximizing = false
-let GOOGLE_ANALYTICS_DELAY_MS = 30
 let GLOBAL_CLIMATE_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
 
 function maximize() {
@@ -127,7 +126,7 @@ function trackEvent(category, action, label, value) {
       window.ga('send', params)
       resolve(true)
     } catch(e){
-      reject("GA call failed: " + e)
+      reject('GA call failed: ' + e)
     }
   })
 }
