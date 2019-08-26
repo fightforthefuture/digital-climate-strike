@@ -75,3 +75,9 @@
     line-height: 1.4;
   }
 }
+
+@media (max-height: 600px) {
+  .dcs-full-page__body p {
+    font: normal 2.2rem/2.5rem 'Greve';
+  }
+}
