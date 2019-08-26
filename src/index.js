@@ -131,8 +131,27 @@ function trackEvent(category, action, label, value) {
   window.ga('send', params)
 }
 
+function todayIs(y, m, d) {
+  var date = new Date();
+  var offset = 4; // EDT
+  date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+
+  return (year === y && month === m && day === d);
+}
+
+function monthName(monthIndex) {
+  var months = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  return months[monthIndex];
+}
+
 function initializeInterface() {
   const query = parseQuery(location.search)
+  const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate));
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -156,8 +175,16 @@ function initializeInterface() {
     addTrackingEvents(query.hostname, query.forceFullPageWidget)
   }
 
-  if (query.forceFullPageWidget) {
+  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
     maximize()
   }
+
+  // Set display dates on full-size widget
+  var fullscreenDateString = monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate();
+  var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
+  var nextDayDateString = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
+  document.getElementById('dcs-strike-date').innerText = fullscreenDateString;
+  document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString;
 }
+
 document.addEventListener('DOMContentLoaded', initializeInterface)
