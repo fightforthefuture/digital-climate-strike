@@ -2,9 +2,9 @@ full_page:
   body: '
       <h1>
         <span class="dcs-website-name__default">Nuestra</span>
-        <span class=dcs-website-name__prefix>La</span>
+        <span class=dcs-website-name__prefix>La web de</span>
         <span class=dcs-website-name></span>
-        <span class="dcs-website-name__website">web</span> se<br/> une<br/> al evento #ClimateStrike.<br/> ¿Quieres participar?
+        <span class="dcs-website-name__website"></span> se une<br/> al evento #ClimateStrike.<br/> ¿Quieres participar?
       </h1>'
   ready:  '<a href=# class=dcs-button> Quiero participar. ➔ </a>'
   footer: '<small>Podrás volver a acceder a esta web a partir de mañana, <span id="dcs-tomorrow-date">21 de Septiembre</span> .</small>'
