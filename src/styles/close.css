@@ -10,10 +10,13 @@
   max-width: 3rem;
   position: relative;
   width: 100%;
+  background-color: transparent;
+  padding: 0;
+  border: 0;
 
   &::before,
   &::after {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.5);
     content: '';
     height: 1.2rem;
     position: absolute;
@@ -30,7 +33,6 @@
 
   &:hover,
   &:focus {
-
     &::before,
     &::after {
       background-color: rgba(0, 0, 0, 1);
@@ -40,15 +42,4 @@
   &:focus {
     outline: 2px dotted var(--black);
   }
-
-  & .dcs-sr-only {
-    height: 1px;
-    left: -10000px;
-    overflow: hidden;
-    position: absolute;
-    top: auto;
-    width: 1px;
-  }
 }
-
-

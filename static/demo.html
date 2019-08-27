@@ -16,9 +16,11 @@
   <script>
     var iframeHost = window.location.origin;
     var fullPage = window.location.toString().indexOf('fullPage') !== -1;
+    var showCloseButton = window.location.toString().indexOf('showCloseButton') !== -1;
     var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
       iframeHost: iframeHost,
       forceFullPageWidget: fullPage,
+      showCloseButtonOnFullPageWidget: showCloseButton,
       alwaysShowWidget: true,
     };
   </script>
