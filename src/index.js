@@ -15,6 +15,10 @@ function maximize() {
   fullPage.style.display = 'flex'
 }
 
+function getGlobalClimateStrikeLinkUrl(language) {
+  return language === 'en' ? GLOBAL_CLIMATE_STRIKE_LINK_URL :  'https://' + language + '.globalclimatestrike.net'
+}
+
 function showCloseButtonOnFullPageWidget() {
   const fullPageCloseButton = document.querySelector('.dcs-full-page__close')
   fullPageCloseButton.style.display = 'flex'
@@ -133,6 +137,7 @@ function trackEvent(category, action, label, value) {
 
 function initializeInterface() {
   const query = parseQuery(location.search)
+  GLOBAL_CLIMATE_STRIKE_LINK_URL = getGlobalClimateStrikeLinkUrl(query.language)
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')

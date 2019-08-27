@@ -54,6 +54,8 @@
       src += '/index-' + language + '.html?';
     }
 
+    src += 'language=' + language + '&';
+
     src += 'hostname=' + window.location.host + '&';
 
     if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
