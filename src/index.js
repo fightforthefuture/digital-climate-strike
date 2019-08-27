@@ -94,15 +94,16 @@ function initGoogleAnalytics() {
 }
 
 function addTrackingEvents(hostname, forceFullPageWidget) {
-  attachEvent('.dcs-footer .dcs-button', 'click', () => trackEvent('footer-join-button', 'click', hostname))
-  attachEvent('.dcs-footer .dcs-close', 'click', () => trackEvent('footer-close-button', 'click', hostname))
-  attachEvent('.dcs-full-page .dcs-button', 'click', () => trackEvent('full-page-join-button', 'click', hostname))
-  attachEvent('.dcs-full-page .dcs-close', 'click', () => trackEvent('full-page-close-button', 'click', hostname))
+  attachEvent('.dcs-footer .dcs-button', 'click', (event) => trackEvent(event,'footer-join-button', 'click', hostname))
+
+  attachEvent('.dcs-footer .dcs-close', 'click', (event) => trackEvent(event,'footer-close-button', 'click', hostname))
+  attachEvent('.dcs-full-page .dcs-button', 'click', (event) => trackEvent(event,'full-page-join-button', 'click', hostname))
+  attachEvent('.dcs-full-page .dcs-close', 'click', (event) => trackEvent(event,'full-page-close-button', 'click', hostname))
 
   if (forceFullPageWidget) {
-    trackEvent('full-page-widget', 'load', hostname)
+    trackEvent(null, 'full-page-widget', 'load', hostname)
   } else {
-    trackEvent('footer-widget', 'load', hostname)
+    trackEvent(null,'footer-widget', 'load', hostname)
   }
 }
 
@@ -114,7 +115,12 @@ function forceEvent(category) {
   }
 }
 
-function trackEvent(category, action, label, value) {
+function trackEvent(event, category, action, label, value) {
+  if (event) {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
   promiseWithTimeout(category, saveGAEvent(category, action, label, value))
 }
 
