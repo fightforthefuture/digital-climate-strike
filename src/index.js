@@ -1,6 +1,7 @@
 import './main.css'
 
 let isMaximizing = false
+let GOOGLE_ANALYTICS_DELAY_MS = 30
 let GLOBAL_CLIMATE_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
 
 function maximize() {
@@ -105,29 +106,58 @@ function addTrackingEvents(hostname, forceFullPageWidget) {
   }
 }
 
+function forceEvent(category) {
+  if (category.includes('close-button')) {
+    postMessage('closeButtonClicked')
+  } else if (category.includes('join-button')) {
+    postMessage('buttonClicked', {linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL})
+  }
+}
+
 function trackEvent(category, action, label, value) {
-  return new Promise((resolve, reject) => {
-    try {
-      if (!window.ga) return
+  promiseWithTimeout(category, saveGAEvent(category, action, label, value))
+}
 
-      const params = {
-        hitType: 'event',
-        eventCategory: category,
-        eventAction: action
-      }
+function promiseWithTimeout(category, promise) {
+  const timeout = new Promise(resolve => {
+    setTimeout(
+      () => {
+        forceEvent(category)
+        resolve(true)
+      },
+      GOOGLE_ANALYTICS_DELAY_MS)
+  })
 
-      if (label) {
-        params.eventLabel = label
-      }
+  return Promise.race([promise, timeout])
+}
 
-      if (value) {
-        params.eventValue = value
-      }
-      window.ga('send', params)
-      resolve(true)
-    } catch(e){
-      reject('GA call failed: ' + e)
+function saveGAEvent(category, action, label, value) {
+  return new Promise(resolve => {
+    if (!window.ga) resolve(true)
+
+    const params = {
+      hitType: 'event',
+      eventCategory: category,
+      eventAction: action
     }
+
+    if (category.includes('close-button')) {
+      params.hitCallback = postMessage('closeButtonClicked')
+    } else if (category.includes('join-button')) {
+      params.hitCallback = postMessage('buttonClicked', {linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL})
+    }
+
+    if (label) {
+      params.eventLabel = label
+    }
+
+    if (value) {
+      params.eventValue = value
+    }
+
+    window.ga('send', params)
+
+    resolve(true)
   })
 }
 
@@ -138,8 +168,11 @@ function initializeInterface() {
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
   setGlobalClimateStrikeLinkUrl('.dcs-full-page .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-full-page__logo')
+
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
+
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
+
   attachEvent('.dcs-footer__logo', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-full-page__logo', 'click', handleJoinStrikeButtonClick)
 
