@@ -48,7 +48,7 @@
     var src = iframeHost;
 
     if (language === 'en') {
-      src += '/?';
+      src += '/index.html?';
     }
     else {
       src += '/index-' + language + '.html?';
@@ -100,7 +100,6 @@
   }
 
   function monthName(monthIndex) {
-    var language = getLanguage();
     return LANGUAGE_MONTHS_TRANSLATION_MAPPING[language][monthIndex];
   }
 
