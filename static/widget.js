@@ -5,6 +5,23 @@
   var NOW = new Date();
   var MS_PER_DAY = 86400000;
 
+  var MONTHS_IN_EN = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  var MONTHS_IN_ES = [
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+  ];
+
+  var MONTHS_IN_DE = [
+    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+  ];
+
+  var LANGUAGE_MONTHS_TRANSLATION_MAPPING = {
+    'en': MONTHS_IN_EN,
+    'es': MONTHS_IN_ES,
+    'de': MONTHS_IN_DE
+  }
+
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
@@ -83,20 +100,8 @@
   }
 
   function monthName(monthIndex) {
-    const language = getLanguage();
-
-    const months = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    const months_es = [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-
-    const months_i18n = new Map();
-    months_i18n.set('en',months);
-    months_i18n.set('es',months_es);
-
-    return months_i18n.get(language)[monthIndex];
+    var language = getLanguage();
+    return LANGUAGE_MONTHS_TRANSLATION_MAPPING[language][monthIndex];
   }
 
   function getLanguage() {
@@ -105,6 +110,11 @@
     // spanish is specified or no language is set and browser is set to spanish
     if (options.language === 'es' || (!options.language && navigator && navigator.language.match(/^es/))) {
       language = 'es';
+    }
+
+    // spanish is specified or no language is set and browser is set to German
+    if (options.language === 'de' || (!options.language && navigator && navigator.language.match(/^de/))) {
+      language = 'de';
     }
 
     return language;

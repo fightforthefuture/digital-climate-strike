@@ -1,0 +1,42 @@
+full_page:
+  body: '
+      <p>
+        <span class="dcs-website-name__default">Unsere</span>
+        <span class="dcs-website-name__prefix">Diese</span>
+        <span class="dcs-website-name"></span>
+        <span class="dcs-website-name__website">Webseite</span>
+
+        streikt heute<br />
+        #Klimastreik<br />
+        Bist Du auch dabei?
+      </p>'
+  ready:  '
+      <button type="button" class="dcs-button">
+        Ich bin dabei. ➔
+      </button>'
+  footer: '
+      <small>
+        Wir sind morgen,
+          <time id="dcs-tomorrow-date" datetime="2019-09-21">
+          21. September
+          </time>.
+          wieder für Dich da.
+      </small>'
+
+footer:
+  body: '
+      Unsere Webseite unterstützt den #Klimastreik am
+        <time id="dcs-strike-date" datetime="2019-09-20">20. September
+        </time>. Bist Du auch dabei?'
+  ready: '
+      <button type="button" class="dcs-button">
+        Ich bin dabei! ➔
+      </button>'
+
+
+
+
+title: 'Digitalen Klimastreik'
+logo_alt: 'Digitalen Klimastreik-Logo'
+close_overlay: 'Overlay schließen'
+close_banner: 'Banner schließen'

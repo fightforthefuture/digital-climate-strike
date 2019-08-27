@@ -1,16 +1,38 @@
 full_page:
   body: '
-      <h1>
+      <p>
         <span class="dcs-website-name__default">Nuestra</span>
-        <span class=dcs-website-name__prefix>La web de</span>
-        <span class=dcs-website-name></span>
-        <span class="dcs-website-name__website"></span> se une<br/> al evento #ClimateStrike.<br/> ¿Quieres participar?
-      </h1>'
-  ready:  '<a href=# class=dcs-button> Quiero participar. ➔ </a>'
-  footer: '<small>Podrás volver a acceder a esta web a partir de mañana, <span id="dcs-tomorrow-date">21 de Septiembre</span> .</small>'
+        <span class="dcs-website-name__prefix">La web de</span>
+        <span class="dcs-website-name"></span>
+        <span class="dcs-website-name__website">website</span>
+
+        se une<br />
+        al evento #ClimateStrike.<br />
+        ¿Quieres participar?
+      </p>'
+  ready:  '
+      <button type="button" class="dcs-button">
+        Quiero participar. ➔
+      </button>'
+  footer: '
+      <small>
+        Podrás volver a acceder a esta web a partir de mañana,
+          <time id="dcs-tomorrow-date" datetime="2019-09-21">
+          21 de Septiembre
+          </time>.
+      </small>'
 
 footer:
-  body:  'Nuestra web se unirá al evento global #ClimateStrike el próximo <span id="dcs-strike-date">20 de September</span>. ¿Quieres participar?'
-  ready: '<a href=# class=dcs-button> Quiero participar. ➔ </a>'
+  body: '
+      Nuestra web se unirá al evento global #ClimateStrike el próximo
+        <time id="dcs-strike-date" datetime="2019-09-20">20 de September
+        </time>. ¿Quieres participar?'
+  ready: '
+      <button type="button" class="dcs-button">
+        Quiero participar. ➔
+      </button>'
 
-close: 'Cerrar'
+title: 'Huelga digital por el clima'
+logo_alt: 'Logo del la huelga digital por el clima'
+close_overlay: 'Cerrar overlay'
+close_banner: 'Cerrar banner'
