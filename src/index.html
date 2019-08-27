@@ -25,13 +25,19 @@
             </a>
             {{#with full_page}}
             <div class="dcs-full-page__body">
-              {{{ body }}}
+              <p>
+                {{{ body }}}
+              </p>
               <div class="dcs-full-page__action">
-                {{{ ready }}}
+                <button type="button" class="dcs-button">
+                  {{{ ready }}}
+                </button>
               </div>
             </div>
             <div class="dcs-full-page__footer">
-              {{{ footer }}}
+              <small>
+                {{{ footer }}}
+              </small>
             </div>
             {{/with}}
           </div>
@@ -53,7 +59,9 @@
             {{{ body }}}
           </p>
           <div class="dcs-footer__action">
-            {{{ ready }}}
+            <button type="button" class="dcs-button">
+              {{{ ready }}}
+            </button>
           </div>
           {{/with}}
         </div>
