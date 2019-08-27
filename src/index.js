@@ -168,11 +168,8 @@ function initializeInterface() {
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
   setGlobalClimateStrikeLinkUrl('.dcs-full-page .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-full-page__logo')
-
   attachEvent('.dcs-close', 'click', handleCloseButtonClick)
-
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
-
   attachEvent('.dcs-footer__logo', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-full-page__logo', 'click', handleJoinStrikeButtonClick)
 
