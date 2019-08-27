@@ -1,8 +1,14 @@
 import './main.css'
 
+const GOOGLE_ANALYTICS_DELAY_MS = 30
+const GLOBAL_CLIMATE_STRIKE_URLS = {
+  en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
+  de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+}
+
 let isMaximizing = false
-let GOOGLE_ANALYTICS_DELAY_MS = 30
-let GLOBAL_CLIMATE_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
+let language = 'en'
 
 function maximize() {
   if (isMaximizing) return
@@ -13,10 +19,6 @@ function maximize() {
 
   const fullPage = document.querySelector('.dcs-full-page')
   fullPage.style.display = 'flex'
-}
-
-function getGlobalClimateStrikeLinkUrl(language) {
-  return language === 'en' ? GLOBAL_CLIMATE_STRIKE_LINK_URL :  'https://' + language + '.globalclimatestrike.net'
 }
 
 function showCloseButtonOnFullPageWidget() {
@@ -75,13 +77,13 @@ function handleJoinStrikeButtonClick(event) {
 
   //adding delay to allow google analytics call to complete
   setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
+    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_URLS[language] })
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
   const element = document.querySelector(selector)
-  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_LINK_URL)
+  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_URLS[language])
 }
 
 function attachEvent(selector, event, callback) {
@@ -137,7 +139,6 @@ function trackEvent(category, action, label, value) {
 
 function initializeInterface() {
   const query = parseQuery(location.search)
-  GLOBAL_CLIMATE_STRIKE_LINK_URL = getGlobalClimateStrikeLinkUrl(query.language)
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -147,6 +148,8 @@ function initializeInterface() {
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-footer__logo', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-full-page__logo', 'click', handleJoinStrikeButtonClick)
+
+  language = query.language ? query.language : language
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()

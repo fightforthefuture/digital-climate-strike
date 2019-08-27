@@ -3,37 +3,37 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
   </head>
   <body>
     <main class="dcs-full-page" role="main">
       <div class="dcs-full-page__container">
         <div class="dcs-full-page__close">
-          <button type="button" class="dcs-close" title="{{close_overlay}}">
-            <span class="dcs-sr-only">{{close_overlay}}</span>
+          <button type="button" class="dcs-close" title="{{ close_overlay }}">
+            <span class="dcs-sr-only">{{ close_overlay }}</span>
           </button>
         </div>
         <div class="dcs-full-page__main">
           <div class="dcs-full-page__details">
-            <h1 class="dcs-sr-only">{{title}}</h1>
+            <h1 class="dcs-sr-only">{{ title }}</h1>
             <a class="dcs-full-page__logo" href="#">
               <img
                 src="images/dcs-logo.png"
                 class="dcs-logo--med"
-                alt="{{logo_alt}}"
+                alt="{{ logo_alt }}"
               />
             </a>
+            {{#with full_page}}
             <div class="dcs-full-page__body">
-              {{#with full_page}}
-                {{{ body }}}
+              {{{ body }}}
               <div class="dcs-full-page__action">
                 {{{ ready }}}
               </div>
             </div>
             <div class="dcs-full-page__footer">
-                {{{ footer }}}
-              {{/with}}
+              {{{ footer }}}
             </div>
+            {{/with}}
           </div>
         </div>
       </div>
@@ -43,23 +43,23 @@
         <a class="dcs-footer__logo" href="#">
           <img
             src="images/dcs-logo.png"
-            alt="{{logo_alt}}"
+            alt="{{ logo_alt }}"
             class="dcs-logo"
           />
         </a>
         <div class="dcs-footer__main">
+          {{#with footer}}
           <p class="dcs-footer__body">
-            {{#with footer}}
-              {{{ body }}}
+            {{{ body }}}
           </p>
           <div class="dcs-footer__action">
-              {{{ ready }}}
-            {{/with}}
+            {{{ ready }}}
           </div>
+          {{/with}}
         </div>
         <div class="dcs-footer__close">
-          <button type="button" class="dcs-close" title="{{close_banner}}">
-            <span class="dcs-sr-only">{{close_banner}}</span>
+          <button type="button" class="dcs-close" title="{{ close_banner }}">
+            <span class="dcs-sr-only">{{ close_banner }}</span>
           </button>
         </div>
       </div>

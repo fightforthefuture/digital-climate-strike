@@ -17,9 +17,9 @@
   ];
 
   var LANGUAGE_MONTHS_TRANSLATION_MAPPING = {
-    'en': MONTHS_IN_EN,
-    'es': MONTHS_IN_ES,
-    'de': MONTHS_IN_DE
+    en: MONTHS_IN_EN,
+    es: MONTHS_IN_ES,
+    de: MONTHS_IN_DE
   }
 
   // user-configurable options
