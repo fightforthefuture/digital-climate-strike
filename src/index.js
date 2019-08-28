@@ -125,18 +125,13 @@ function trackEvent(category, action, label, value) {
   return new Promise(resolve => {
     if (!window.ga) resolve(true)
 
-    setTimeout(
-      () => resolve(true),
-      GOOGLE_ANALYTICS_DELAY_MS
-    )
+    setTimeout(() => resolve(true), GOOGLE_ANALYTICS_DELAY_MS)
 
     const params = {
       hitType: 'event',
       eventCategory: category,
       eventAction: action,
-      hitCallback: () => {
-        resolve(true)
-      }
+      hitCallback: () => resolve(true)
     }
 
     if (label) {
