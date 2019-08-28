@@ -36,9 +36,8 @@
   var language = getLanguage();
 
   function onIframeLoad() {
-    var fullscreenDisplayDate = monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate();
-    var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
-    var nextDayDisplayDate = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
+    var fullscreenDisplayDate = getFullscreenDisplayDate();
+    var nextDayDisplayDate = getNextDayDisplayDate();
     var iframe = document.getElementById(DOM_ID).getElementsByTagName('iframe')[0].contentWindow.document;
     iframe.getElementById('dcs-strike-date').innerText = fullscreenDisplayDate;
     iframe.getElementById('dcs-tomorrow-date').innerText = nextDayDisplayDate;
@@ -99,6 +98,21 @@
     var day = date.getDate();
 
     return (year === y && month === m && day === d);
+  }
+
+  function getFullscreenDisplayDate() {
+    if (language === 'de') {
+      return fullPageDisplayStartDate.getDate() + '. ' + monthName(fullPageDisplayStartDate.getMonth())
+    }
+    return monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate()
+  }
+
+  function getNextDayDisplayDate() {
+    var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
+    if (language === 'de') {
+      return nextDay.getDate() + '. ' + monthName(nextDay.getMonth());
+    }
+    return monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
   }
 
   function monthName(monthIndex) {
