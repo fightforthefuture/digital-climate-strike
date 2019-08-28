@@ -47,7 +47,17 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
      * one day.
      */
     cookieExpirationDays: 1, // @type {number}
-
+    
+    /**
+     * Set the language of the widget. We currently support:
+     * 'en': English
+     * 'de': German
+     * 'es': Spanish
+     * Defaults to null, which will obey the nagivator.language setting of the 
+     * viewer's browser.
+     */
+     language: null, // @type {string}
+     
     /**
      * Allow you to override the iFrame hostname. Defaults to https://assets.digitalclimatestrike.net  
      */

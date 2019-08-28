@@ -101,18 +101,21 @@
   }
 
   function getFullscreenDisplayDate() {
+    var nonBreakingSpace = String.fromCharCode(160);
     if (language === 'de') {
-      return fullPageDisplayStartDate.getDate() + '. ' + monthName(fullPageDisplayStartDate.getMonth())
+      return fullPageDisplayStartDate.getDate() + '.' + nonBreakingSpace + monthName(fullPageDisplayStartDate.getMonth())
     }
-    return monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate()
+    return monthName(fullPageDisplayStartDate.getMonth()) + nonBreakingSpace + fullPageDisplayStartDate.getDate()
   }
 
   function getNextDayDisplayDate() {
     var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
+    var nonBreakingSpace = String.fromCharCode(160);
+
     if (language === 'de') {
-      return nextDay.getDate() + '. ' + monthName(nextDay.getMonth());
+      return nextDay.getDate() + '.' + nonBreakingSpace + monthName(nextDay.getMonth());
     }
-    return monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
+    return monthName(nextDay.getMonth()) + nonBreakingSpace + nextDay.getDate();
   }
 
   function monthName(monthIndex) {
