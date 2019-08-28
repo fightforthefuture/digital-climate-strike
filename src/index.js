@@ -7,21 +7,15 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
-var MONTHS_IN_EN = [
-  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-]
-var MONTHS_IN_ES = [
-  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-]
+const LOCALE_CODE_MAPPING = {
+  en: 'en-EN',
+  de: 'de-DE',
+  es: 'es-ES'
+}
 
-var MONTHS_IN_DE = [
-  'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-]
-
-var LANGUAGE_MONTHS_TRANSLATION_MAPPING = {
-  en: MONTHS_IN_EN,
-  es: MONTHS_IN_ES,
-  de: MONTHS_IN_DE
+const LOCALE_DATE_STRING_CONFIG = {
+  day: 'numeric',
+  month: 'long'
 }
 
 let isMaximizing = false
@@ -165,26 +159,13 @@ function todayIs(y, m, d) {
   return (year === y && month === m && day === d)
 }
 
-function getFullscreenDisplayDate(fullPageDisplayStartDate) {
-  var nonBreakingSpace = String.fromCharCode(160)
-  if (language === 'de') {
-    return fullPageDisplayStartDate.getDate() + '.' + nonBreakingSpace + monthName(fullPageDisplayStartDate.getMonth())
-  }
-  return monthName(fullPageDisplayStartDate.getMonth()) + nonBreakingSpace + fullPageDisplayStartDate.getDate()
+function getFullscreenDisplayDate(fullPageDisplayStartDate, language) {
+  return fullPageDisplayStartDate.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
 }
 
-function getNextDayDisplayDate(fullPageDisplayStartDate) {
+function getNextDayDisplayDate(fullPageDisplayStartDate, language) {
   var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1)
-  var nonBreakingSpace = String.fromCharCode(160)
-
-  if (language === 'de') {
-    return nextDay.getDate() + '.' + nonBreakingSpace + monthName(nextDay.getMonth())
-  }
-  return monthName(nextDay.getMonth()) + nonBreakingSpace + nextDay.getDate()
-}
-
-function monthName(monthIndex) {
-  return LANGUAGE_MONTHS_TRANSLATION_MAPPING[language][monthIndex]
+  return nextDay.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
 }
 
 function initializeInterface() {
@@ -220,8 +201,8 @@ function initializeInterface() {
   }
 
   // Set display dates on full-size widget
-  var fullscreenDateString = getFullscreenDisplayDate(fullPageDisplayStartDate)
-  var nextDayDateString = getNextDayDisplayDate(fullPageDisplayStartDate)
+  var fullscreenDateString = getFullscreenDisplayDate(fullPageDisplayStartDate, language)
+  var nextDayDateString = getNextDayDisplayDate(fullPageDisplayStartDate, language)
   document.getElementById('dcs-strike-date').innerText = fullscreenDateString
   document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString
 }
