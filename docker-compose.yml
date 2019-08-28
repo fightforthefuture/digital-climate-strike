@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  strike-widget:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 8080:8080
+      - 9229:9229
+    command: npm run dev
