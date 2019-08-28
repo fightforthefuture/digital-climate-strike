@@ -94,24 +94,20 @@ function initGoogleAnalytics() {
 }
 
 function addTrackingEvents(hostname, forceFullPageWidget) {
-  attachEvent('.dcs-footer .dcs-button', 'click', event => {
+  attachEvent('.dcs-footer .dcs-button', 'click', event =>
     trackEvent('footer-join-button', 'click', hostname).then(() => handleJoinStrikeButtonClick(event))
-    }
   )
 
-  attachEvent('.dcs-footer .dcs-close', 'click', event => {
-      trackEvent('footer-close-button', 'click', hostname).then(() => handleCloseButtonClick(event))
-    }
+  attachEvent('.dcs-footer .dcs-close', 'click', event =>
+    trackEvent('footer-close-button', 'click', hostname).then(() => handleCloseButtonClick(event))
   )
 
-  attachEvent('.dcs-full-page .dcs-button', 'click', event => {
-      trackEvent('full-page-join-button', 'click', hostname).then(() => handleJoinStrikeButtonClick(event))
-    }
+  attachEvent('.dcs-full-page .dcs-button', 'click', event =>
+    trackEvent('full-page-join-button', 'click', hostname).then(() => handleJoinStrikeButtonClick(event))
   )
 
-  attachEvent('.dcs-full-page .dcs-close', 'click', event => {
-      trackEvent('full-page-close-button', 'click', hostname).then(() => handleCloseButtonClick(event))
-    }
+  attachEvent('.dcs-full-page .dcs-close', 'click', event =>
+    trackEvent('full-page-close-button', 'click', hostname).then(() => handleCloseButtonClick(event))
   )
 
   if (forceFullPageWidget) {
