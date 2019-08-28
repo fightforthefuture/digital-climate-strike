@@ -1,60 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width">
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Digital Climate Strike</title>
   </head>
   <body>
-    <main class="dcs-full-page">
+    <main class="dcs-full-page" role="main">
       <div class="dcs-full-page__container">
         <div class="dcs-full-page__close">
-          <a class="dcs-close" href="#"><span class="dcs-sr-only">Close</span></a>
+          <button type="button" class="dcs-close" title="Close overlay">
+            <span class="dcs-sr-only">Close overlay</span>
+          </button>
         </div>
         <div class="dcs-full-page__main">
           <div class="dcs-full-page__details">
+            <h1 class="dcs-sr-only">Digital Climate Strike</h1>
             <a class="dcs-full-page__logo" href="#">
-              <img src="images/dcs-logo.png" class="dcs-logo--med" alt="">
+              <img
+                src="images/dcs-logo.png"
+                class="dcs-logo--med"
+                alt="Digital Climate Strike logo"
+              />
             </a>
             <div class="dcs-full-page__body">
-              <h1>
+              <p>
                 <span class="dcs-website-name__default">Our</span>
                 <span class="dcs-website-name__prefix">The</span>
                 <span class="dcs-website-name"></span>
                 <span class="dcs-website-name__website">website</span>
 
-                is<br/> joining the Global<br/> #ClimateStrike today.<br/>
+                is<br />
+                joining the Global<br />
+                #ClimateStrike today.<br />
                 Will you?
-              </h1>
+              </p>
               <div class="dcs-full-page__action">
-                <a href="#" class="dcs-button">
+                <button type="button" class="dcs-button">
                   I&rsquo;m ready. ➔
-                </a>
+                </button>
               </div>
             </div>
-            <div class="dcs-full-page__footer">
-              <small>You’ll be able to access this website tomorrow, <span id="dcs-tomorrow-date">September 21</span>.</small>
-            </div>
+            <p class="dcs-full-page__footer">
+              <small
+                >You’ll be able to access this website tomorrow,
+                <time id="dcs-tomorrow-date" datetime="2019-09-21"
+                  >September 21 </time
+                >.</small
+              >
+            </p>
           </div>
         </div>
       </div>
     </main>
-    <footer class="dcs-footer">
+    <footer class="dcs-footer" role="contentinfo">
       <div class="dcs-footer__container">
         <a class="dcs-footer__logo" href="#">
-          <img src="images/dcs-logo.png" alt="Digital Climate Strike logo" class="dcs-logo">
+          <img
+            src="images/dcs-logo.png"
+            alt="Digital Climate Strike logo"
+            class="dcs-logo"
+          />
         </a>
         <div class="dcs-footer__main">
-          <div class="dcs-footer__body">
-            Our website will join the Global #ClimateStrike on <span id="dcs-strike-date">September 20</span>. Will you?
-          </div>
+          <p class="dcs-footer__body">
+            Our website will join the Global #ClimateStrike on
+            <time id="dcs-strike-date" datetime="2019-09-21">September 20</time
+            >. Will you?
+          </p>
           <div class="dcs-footer__action">
-            <a href="#" class="dcs-button">
+            <button type="button" class="dcs-button">
               Yes, I&rsquo;m in. ➔
-            </a>
+            </button>
           </div>
         </div>
         <div class="dcs-footer__close">
-          <a class="dcs-close" href="#"><span class="dcs-sr-only">Close</span></a>
+          <button type="button" class="dcs-close" title="Close banner">
+            <span class="dcs-sr-only">Close banner</span>
+          </button>
         </div>
       </div>
     </footer>
