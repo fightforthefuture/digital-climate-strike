@@ -4,6 +4,7 @@
 @import './styles/button.css';
 @import './styles/close.css';
 @import './styles/logo.css';
+@import './styles/sr-only.css';
 
 /* Views */
 @import './styles/footer.css';
