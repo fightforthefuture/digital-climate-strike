@@ -34,6 +34,18 @@ $ npm run lint
 
 [TravisCI](https://travis-ci.com/global-climate-strikes/digital-climate-strike/branches) is set up to build the widget and upload it to Google Cloud Storage on every commit to the master branch.
 
+## Development Docker container
+
+If you don't have (or don't want to use) a NodeJS environment available locally, you can use simple Docker container shipped in the repository.
+
+Follow these steps:
+
+1. Install `docker` tool using [instruction for you platform](https://docs.docker.com/install/)
+2. Go to the project directory and start the container using `docker-compose up` command. The first start will be slower, because the container has to be built.
+3. See built project at [http://127.0.0.1:8080](http://127.0.0.1:8080)
+
+You can modify settings by editing `docker-compose.yml` file. The container needs to be rebuilt afterwards
+
 # Dev Notes
 
 - We use [BEM](http://getbem.com/) for CSS class structure
