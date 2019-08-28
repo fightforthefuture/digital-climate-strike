@@ -27,9 +27,9 @@
     ];
 
     forceFullPageWidget && urlParams.push(['forceFullPageWidget', 'true']);
-    showCloseButtonOnFullPageWidget && urlParams.push('showCloseButtonOnFullPageWidget', 'true');
-    disableGoogleAnalytics && urlParams.push('googleAnalytics', 'false');
-    websiteName && urlParams.push('websiteName', encodeURI(websiteName));
+    showCloseButtonOnFullPageWidget && urlParams.push(['showCloseButtonOnFullPageWidget', 'true']);
+    disableGoogleAnalytics && urlParams.push(['googleAnalytics', 'false']);
+    websiteName && urlParams.push(['websiteName', encodeURI(websiteName)]);
 
     var params = urlParams.map(function(el) {
       return el.join('=');
