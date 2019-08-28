@@ -59,20 +59,14 @@ function handleCloseButtonClick(event) {
   event.preventDefault()
   event.stopPropagation()
 
-  //adding delay to allow google analytics call to complete
-  setTimeout(() => {
-    postMessage('closeButtonClicked')
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  postMessage('closeButtonClicked')
 }
 
 function handleJoinStrikeButtonClick(event) {
   event.preventDefault()
   event.stopPropagation()
 
-  //adding delay to allow google analytics call to complete
-  setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
@@ -100,10 +94,49 @@ function initGoogleAnalytics() {
 }
 
 function addTrackingEvents(hostname, forceFullPageWidget) {
-  attachEvent('.dcs-footer .dcs-button', 'click', () => trackEvent('footer-join-button', 'click', hostname))
-  attachEvent('.dcs-footer .dcs-close', 'click', () => trackEvent('footer-close-button', 'click', hostname))
-  attachEvent('.dcs-full-page .dcs-button', 'click', () => trackEvent('full-page-join-button', 'click', hostname))
-  attachEvent('.dcs-full-page .dcs-close', 'click', () => trackEvent('full-page-close-button', 'click', hostname))
+  attachEvent(
+    '.dcs-footer .dcs-button',
+    'click',
+    event => {
+      trackEvent('footer-join-button', 'click', hostname)
+        .then(() => {
+          handleJoinStrikeButtonClick(event)
+        })
+    }
+  )
+
+  attachEvent(
+    '.dcs-footer .dcs-close',
+    'click',
+    event => {
+      trackEvent('footer-close-button', 'click', hostname)
+        .then(() => {
+          handleCloseButtonClick(event)
+        })
+    }
+  )
+
+  attachEvent(
+    '.dcs-full-page .dcs-button',
+    'click',
+    event => {
+      trackEvent('full-page-join-button', 'click', hostname)
+        .then(() => {
+          handleJoinStrikeButtonClick(event)
+        })
+    }
+  )
+
+  attachEvent(
+    '.dcs-full-page .dcs-close',
+    'click',
+    event => {
+      trackEvent('full-page-close-button', 'click', hostname)
+        .then(() => {
+          handleCloseButtonClick(event)
+        })
+    }
+  )
 
   if (forceFullPageWidget) {
     trackEvent('full-page-widget', 'load', hostname)
@@ -112,23 +145,37 @@ function addTrackingEvents(hostname, forceFullPageWidget) {
   }
 }
 
+/*
+ * This method send the Google Analytics API call asynchronously, using a Promise.
+ * If the API hangs for too long, a timeout will be fired to force a return.
+ */
 function trackEvent(category, action, label, value) {
-  if (!window.ga) return
+  return new Promise(resolve => {
+    if (!window.ga) resolve(true)
 
-  const params = {
-    hitType: 'event',
-    eventCategory: category,
-    eventAction: action
-  }
+    setTimeout(
+      () => resolve(true),
+      GOOGLE_ANALYTICS_DELAY_MS
+    )
 
-  if (label) {
-    params.eventLabel = label
-  }
+    const params = {
+      hitType: 'event',
+      eventCategory: category,
+      eventAction: action,
+      hitCallback: () => {
+        resolve(true)
+      }
+    }
 
-  if (value) {
-    params.eventValue = value
-  }
-  window.ga('send', params)
+    if (label) {
+      params.eventLabel = label
+    }
+
+    if (value) {
+      params.eventValue = value
+    }
+    window.ga('send', params)
+  })
 }
 
 function initializeInterface() {
