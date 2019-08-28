@@ -7,6 +7,23 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
+var MONTHS_IN_EN = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+]
+var MONTHS_IN_ES = [
+  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+]
+
+var MONTHS_IN_DE = [
+  'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+]
+
+var LANGUAGE_MONTHS_TRANSLATION_MAPPING = {
+  en: MONTHS_IN_EN,
+  es: MONTHS_IN_ES,
+  de: MONTHS_IN_DE
+}
+
 let isMaximizing = false
 let language = 'en'
 
@@ -137,8 +154,42 @@ function trackEvent(category, action, label, value) {
   window.ga('send', params)
 }
 
+function todayIs(y, m, d) {
+  var date = new Date()
+  var offset = 4 // EDT
+  date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  return (year === y && month === m && day === d)
+}
+
+function getFullscreenDisplayDate(fullPageDisplayStartDate) {
+  var nonBreakingSpace = String.fromCharCode(160)
+  if (language === 'de') {
+    return fullPageDisplayStartDate.getDate() + '.' + nonBreakingSpace + monthName(fullPageDisplayStartDate.getMonth())
+  }
+  return monthName(fullPageDisplayStartDate.getMonth()) + nonBreakingSpace + fullPageDisplayStartDate.getDate()
+}
+
+function getNextDayDisplayDate(fullPageDisplayStartDate) {
+  var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1)
+  var nonBreakingSpace = String.fromCharCode(160)
+
+  if (language === 'de') {
+    return nextDay.getDate() + '.' + nonBreakingSpace + monthName(nextDay.getMonth())
+  }
+  return monthName(nextDay.getMonth()) + nonBreakingSpace + nextDay.getDate()
+}
+
+function monthName(monthIndex) {
+  return LANGUAGE_MONTHS_TRANSLATION_MAPPING[language][monthIndex]
+}
+
 function initializeInterface() {
   const query = parseQuery(location.search)
+  const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate))
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -164,8 +215,15 @@ function initializeInterface() {
     addTrackingEvents(query.hostname, query.forceFullPageWidget)
   }
 
-  if (query.forceFullPageWidget) {
+  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
     maximize()
   }
+
+  // Set display dates on full-size widget
+  var fullscreenDateString = getFullscreenDisplayDate(fullPageDisplayStartDate)
+  var nextDayDateString = getNextDayDisplayDate(fullPageDisplayStartDate)
+  document.getElementById('dcs-strike-date').innerText = fullscreenDateString
+  document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString
 }
+
 document.addEventListener('DOMContentLoaded', initializeInterface)

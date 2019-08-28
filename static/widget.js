@@ -2,25 +2,8 @@
   'use strict';
   var DOM_ID = 'DIGITAL_CLIMATE_STRIKE';
   var CLOSED_COOKIE = '_DIGITAL_CLIMATE_STRIKE_WIDGET_CLOSED_';
-  var NOW = new Date();
+  var NOW = new Date().getTime();
   var MS_PER_DAY = 86400000;
-
-  var MONTHS_IN_EN = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-  ];
-  var MONTHS_IN_ES = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-  ];
-
-  var MONTHS_IN_DE = [
-    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-  ];
-
-  var LANGUAGE_MONTHS_TRANSLATION_MAPPING = {
-    en: MONTHS_IN_EN,
-    es: MONTHS_IN_ES,
-    de: MONTHS_IN_DE
-  }
 
   // user-configurable options
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
@@ -35,45 +18,27 @@
   var showCloseButtonOnFullPageWidget = !!options.showCloseButtonOnFullPageWidget;
   var language = getLanguage();
 
-  function onIframeLoad() {
-    var fullscreenDisplayDate = getFullscreenDisplayDate();
-    var nextDayDisplayDate = getNextDayDisplayDate();
-    var iframe = document.getElementById(DOM_ID).getElementsByTagName('iframe')[0].contentWindow.document;
-    iframe.getElementById('dcs-strike-date').innerText = fullscreenDisplayDate;
-    iframe.getElementById('dcs-tomorrow-date').innerText = nextDayDisplayDate;
-  }
-
   function getIframeSrc() {
     var src = iframeHost;
+    src += language === 'en' ? '/index.html?' : '/index-' + language + '.html?';
 
-    if (language === 'en') {
-      src += '/index.html?';
-    }
-    else {
-      src += '/index-' + language + '.html?';
-    }
+    var urlParams = [
+      ['hostname', window.location.host],
+      ['footerDisplayStartDate', footerDisplayStartDate.toISOString()],
+      ['fullPageDisplayStartDate', fullPageDisplayStartDate.toISOString()],
+      ['language', language]
+    ];
 
-    src += 'language=' + language + '&';
+    forceFullPageWidget && urlParams.push(['forceFullPageWidget', 'true']);
+    showCloseButtonOnFullPageWidget && urlParams.push(['showCloseButtonOnFullPageWidget', 'true']);
+    disableGoogleAnalytics && urlParams.push(['googleAnalytics', 'false']);
+    websiteName && urlParams.push(['websiteName', encodeURI(websiteName)]);
 
-    src += 'hostname=' + window.location.host + '&';
+    var params = urlParams.map(function(el) {
+      return el.join('=');
+    });
 
-    if (forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
-      src += 'forceFullPageWidget=true&';
-    }
-
-    if (showCloseButtonOnFullPageWidget) {
-      src += 'showCloseButtonOnFullPageWidget=true&';
-    }
-
-    if (disableGoogleAnalytics) {
-      src += 'googleAnalytics=false&';
-    }
-
-    if (websiteName) {
-      src += 'websiteName=' + encodeURI(websiteName);
-    }
-
-    return src.replace(/(\?|&)$/, '');
+    return src + params.join('&');
   }
 
   function createIframe() {
@@ -83,43 +48,9 @@
     iframe.src = getIframeSrc();
     iframe.frameBorder = 0;
     iframe.allowTransparency = true;
-    iframe.onload = onIframeLoad;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
-  }
-
-  function todayIs(y, m, d) {
-    var date = new Date();
-    var offset = 4; // EDT
-    date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset);
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-
-    return (year === y && month === m && day === d);
-  }
-
-  function getFullscreenDisplayDate() {
-    var nonBreakingSpace = String.fromCharCode(160);
-    if (language === 'de') {
-      return fullPageDisplayStartDate.getDate() + '.' + nonBreakingSpace + monthName(fullPageDisplayStartDate.getMonth())
-    }
-    return monthName(fullPageDisplayStartDate.getMonth()) + nonBreakingSpace + fullPageDisplayStartDate.getDate()
-  }
-
-  function getNextDayDisplayDate() {
-    var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
-    var nonBreakingSpace = String.fromCharCode(160);
-
-    if (language === 'de') {
-      return nextDay.getDate() + '.' + nonBreakingSpace + monthName(nextDay.getMonth());
-    }
-    return monthName(nextDay.getMonth()) + nonBreakingSpace + nextDay.getDate();
-  }
-
-  function monthName(monthIndex) {
-    return LANGUAGE_MONTHS_TRANSLATION_MAPPING[language][monthIndex];
   }
 
   function getLanguage() {
@@ -210,7 +141,7 @@
    * 4. We haven't set alwaysShowWidget to be true in the config.
    */
   function iFrameShouldNotBeShown() {
-    return (footerDisplayStartDate > NOW && fullPageDisplayStartDate > NOW)
+    return (footerDisplayStartDate.getTime() > NOW && fullPageDisplayStartDate.getTime() > NOW)
       || new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY) < NOW
       || !!getCookie(CLOSED_COOKIE)
       && !alwaysShowWidget;
