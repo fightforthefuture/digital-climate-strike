@@ -29,8 +29,14 @@ function maximize() {
 }
 
 function showCloseButtonOnFullPageWidget() {
+  const fullPageWidget = document.querySelector('.dcs-full-page')
+  fullPageWidget.style.background = 'rgba(78,229,139, 0.8)'
+
   const fullPageCloseButton = document.querySelector('.dcs-full-page__close')
   fullPageCloseButton.style.display = 'flex'
+
+  const fullPageCloseButtonContent = document.querySelector('.dcs-close')
+  fullPageCloseButtonContent.classList.add('dcs-full-page-close')
 
   const fullPageFooter = document.querySelector('.dcs-full-page__footer')
   fullPageFooter.style.display = 'none'
@@ -173,6 +179,10 @@ function initializeInterface() {
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()
+  }
+
+  if (query.alwaysShowWidget) {
+
   }
 
   if (query.websiteName) {
