@@ -9,7 +9,7 @@
   var options = window.DIGITAL_CLIMATE_STRIKE_OPTIONS || {};
   var iframeHost = options.iframeHost !== undefined ? options.iframeHost : 'https://assets.digitalclimatestrike.net';
   var websiteName = options.websiteName || null;
-  var footerDisplayStartDate = options.footerDisplayStartDate || new Date();                                   // Today
+  var footerDisplayStartDate = options.footerDisplayStartDate || new Date();                 // Today
   var fullPageDisplayStartDate = options.fullPageDisplayStartDate || new Date(2019, 8, 20);  // September 20th, 2019
   var forceFullPageWidget = !!options.forceFullPageWidget;
   var cookieExpirationDays = parseFloat(options.cookieExpirationDays || 1);
