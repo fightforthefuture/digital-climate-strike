@@ -48,5 +48,6 @@
   &::before,
   &::after {
     height: 2rem;
+    background-color: rgba(0,0,0,1);
    }
 }
