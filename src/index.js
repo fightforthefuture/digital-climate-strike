@@ -181,10 +181,6 @@ function initializeInterface() {
     showCloseButtonOnFullPageWidget()
   }
 
-  if (query.alwaysShowWidget) {
-
-  }
-
   if (query.websiteName) {
     handleCustomWebsiteName(query.websiteName)
   }
