@@ -43,3 +43,10 @@
     outline: 2px dotted var(--black);
   }
 }
+
+.dcs-close.dcs-full-page-close {
+  &::before,
+  &::after {
+    height: 2rem;
+   }
+}
