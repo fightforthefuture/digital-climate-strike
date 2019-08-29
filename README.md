@@ -28,6 +28,10 @@ Then at midnight on September 20th for 24 hours, the banner will expand to be fu
 
 ![A screenshot of the Digital Climate Strike full page widget](http://assets.digitalclimatestrike.net/desktop-full-shutdown.png) 
 
+For those who cannot shut down their website for the day, a closable overlay option can also be configured:
+
+![A screenshot of the Digital Climate Strike full page widget with close button](http://assets.digitalclimatestrike.net/desktop-full-shutdown-close-button.png)
+
 The widget is designed to appear once per user, per device, per day, but can be configured to display at a different interval. If you'd like to force it to show up on your page for testing, reload the page with `#ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE` at the end of the URL.
 
 Please take a look at [**widget.js**](https://github.com/global-climate-strikes/digital-climate-strike/blob/master/static/widget.js) if you want to see exactly what you're embedding on your page.
@@ -71,7 +75,8 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
     disableGoogleAnalytics: false, // @type {boolean}
 
     /**
-     * Always show the widget. Useful for testing. Defaults to false.
+     * Always show the widget, even when someone has closed the widget and set the cookie on their device. 
+     * Useful for testing. Defaults to false.
      */
     alwaysShowWidget: false, // @type {boolean}
 
