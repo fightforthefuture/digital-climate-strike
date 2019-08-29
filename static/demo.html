@@ -17,12 +17,17 @@
     var iframeHost = window.location.origin;
     var fullPage = window.location.toString().indexOf('fullPage') !== -1;
     var showCloseButton = window.location.toString().indexOf('showCloseButton') !== -1;
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var language = urlParams.get('language') ? urlParams.get('language') : 'en';
+
     var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
       iframeHost: iframeHost,
       forceFullPageWidget: fullPage,
       showCloseButtonOnFullPageWidget: showCloseButton,
       alwaysShowWidget: true,
-      websiteName: 'Demo'
+      websiteName: 'Demo',
+      language: language
     };
   </script>
   <script src="widget.js"></script>

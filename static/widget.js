@@ -16,14 +16,17 @@
   var alwaysShowWidget = !!(options.alwaysShowWidget || window.location.hash.indexOf('ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE') !== -1);
   var disableGoogleAnalytics = !!options.disableGoogleAnalytics;
   var showCloseButtonOnFullPageWidget = !!options.showCloseButtonOnFullPageWidget;
+  var language = getLanguage();
 
   function getIframeSrc() {
-    var src = iframeHost + '/index.html?';
+    var src = iframeHost;
+    src += language === 'en' ? '/index.html?' : '/index-' + language + '.html?';
 
     var urlParams = [
       ['hostname', window.location.host],
       ['footerDisplayStartDate', footerDisplayStartDate.toISOString()],
-      ['fullPageDisplayStartDate', fullPageDisplayStartDate.toISOString()]
+      ['fullPageDisplayStartDate', fullPageDisplayStartDate.toISOString()],
+      ['language', language]
     ];
 
     forceFullPageWidget && urlParams.push(['forceFullPageWidget', 'true']);
@@ -48,6 +51,22 @@
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
     return wrapper;
+  }
+
+  function getLanguage() {
+    var language = 'en';
+
+    // spanish is specified or no language is set and browser is set to spanish
+    if (options.language === 'es' || (!options.language && navigator && navigator.language.match(/^es/))) {
+      language = 'es';
+    }
+
+    // spanish is specified or no language is set and browser is set to German
+    if (options.language === 'de' || (!options.language && navigator && navigator.language.match(/^de/))) {
+      language = 'de';
+    }
+
+    return language;
   }
 
   function maximize() {

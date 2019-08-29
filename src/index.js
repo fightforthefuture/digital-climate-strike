@@ -1,8 +1,25 @@
 import './main.css'
 
+const GOOGLE_ANALYTICS_DELAY_MS = 30
+const GLOBAL_CLIMATE_STRIKE_URLS = {
+  en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
+  de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+}
+
+const LOCALE_CODE_MAPPING = {
+  en: 'en-EN',
+  de: 'de-DE',
+  es: 'es-ES'
+}
+
+const LOCALE_DATE_STRING_CONFIG = {
+  day: 'numeric',
+  month: 'long'
+}
+
 let isMaximizing = false
-let GOOGLE_ANALYTICS_DELAY_MS = 30
-let GLOBAL_CLIMATE_STRIKE_LINK_URL = 'https://globalclimatestrike.net'
+let language = 'en'
 
 function maximize() {
   if (isMaximizing) return
@@ -71,13 +88,13 @@ function handleJoinStrikeButtonClick(event) {
 
   //adding delay to allow google analytics call to complete
   setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_LINK_URL })
+    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_URLS[language] })
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
   const element = document.querySelector(selector)
-  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_LINK_URL)
+  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_URLS[language])
 }
 
 function attachEvent(selector, event, callback) {
@@ -132,26 +149,28 @@ function trackEvent(category, action, label, value) {
 }
 
 function todayIs(y, m, d) {
-  var date = new Date();
-  var offset = 4; // EDT
-  date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset);
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
+  var date = new Date()
+  var offset = 4 // EDT
+  date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
 
-  return (year === y && month === m && day === d);
+  return (year === y && month === m && day === d)
 }
 
-function monthName(monthIndex) {
-  var months = [
-    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-  ];
-  return months[monthIndex];
+function getFullscreenDisplayDate(fullPageDisplayStartDate, language) {
+  return fullPageDisplayStartDate.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
+}
+
+function getNextDayDisplayDate(fullPageDisplayStartDate, language) {
+  var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1)
+  return nextDay.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
 }
 
 function initializeInterface() {
   const query = parseQuery(location.search)
-  const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate));
+  const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate))
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -161,6 +180,8 @@ function initializeInterface() {
   attachEvent('.dcs-button', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-footer__logo', 'click', handleJoinStrikeButtonClick)
   attachEvent('.dcs-full-page__logo', 'click', handleJoinStrikeButtonClick)
+
+  language = query.language ? query.language : language
 
   if (query.showCloseButtonOnFullPageWidget) {
     showCloseButtonOnFullPageWidget()
@@ -180,11 +201,10 @@ function initializeInterface() {
   }
 
   // Set display dates on full-size widget
-  var fullscreenDateString = monthName(fullPageDisplayStartDate.getMonth()) + ' ' + fullPageDisplayStartDate.getDate();
-  var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1);
-  var nextDayDateString = monthName(nextDay.getMonth()) + ' ' + nextDay.getDate();
-  document.getElementById('dcs-strike-date').innerText = fullscreenDateString;
-  document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString;
+  var fullscreenDateString = getFullscreenDisplayDate(fullPageDisplayStartDate, language)
+  var nextDayDateString = getNextDayDisplayDate(fullPageDisplayStartDate, language)
+  document.getElementById('dcs-strike-date').innerText = fullscreenDateString
+  document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString
 }
 
 document.addEventListener('DOMContentLoaded', initializeInterface)

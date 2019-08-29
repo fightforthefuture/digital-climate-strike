@@ -3,52 +3,43 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
-    <title>Digital Climate Strike</title>
+    <title>{{ title }}</title>
   </head>
   <body>
     <main class="dcs-full-page" role="main">
       <div class="dcs-full-page__container">
         <div class="dcs-full-page__close">
-          <button type="button" class="dcs-close" title="Close overlay">
-            <span class="dcs-sr-only">Close overlay</span>
+          <button type="button" class="dcs-close" title="{{ close_overlay }}">
+            <span class="dcs-sr-only">{{ close_overlay }}</span>
           </button>
         </div>
         <div class="dcs-full-page__main">
           <div class="dcs-full-page__details">
-            <h1 class="dcs-sr-only">Digital Climate Strike</h1>
+            <h1 class="dcs-sr-only">{{ title }}</h1>
             <a class="dcs-full-page__logo" href="#">
               <img
                 src="images/dcs-logo.png"
                 class="dcs-logo--med"
-                alt="Digital Climate Strike logo"
+                alt="{{ logo_alt }}"
               />
             </a>
+            {{#with full_page}}
             <div class="dcs-full-page__body">
               <p>
-                <span class="dcs-website-name__default">Our</span>
-                <span class="dcs-website-name__prefix">The</span>
-                <span class="dcs-website-name"></span>
-                <span class="dcs-website-name__website">website</span>
-
-                is<br />
-                joining the Global<br />
-                #ClimateStrike today.<br />
-                Will you?
+                {{{ body }}}
               </p>
               <div class="dcs-full-page__action">
                 <button type="button" class="dcs-button">
-                  I&rsquo;m ready. ➔
+                  {{{ ready }}}
                 </button>
               </div>
             </div>
-            <p class="dcs-full-page__footer">
-              <small
-                >You’ll be able to access this website tomorrow,
-                <time id="dcs-tomorrow-date" datetime="2019-09-21"
-                  >September 21 </time
-                >.</small
-              >
-            </p>
+            <div class="dcs-full-page__footer">
+              <small>
+                {{{ footer }}}
+              </small>
+            </div>
+            {{/with}}
           </div>
         </div>
       </div>
@@ -58,25 +49,25 @@
         <a class="dcs-footer__logo" href="#">
           <img
             src="images/dcs-logo.png"
-            alt="Digital Climate Strike logo"
+            alt="{{ logo_alt }}"
             class="dcs-logo"
           />
         </a>
         <div class="dcs-footer__main">
+          {{#with footer}}
           <p class="dcs-footer__body">
-            Our website will join the Global #ClimateStrike on
-            <time id="dcs-strike-date" datetime="2019-09-21">September 20</time
-            >. Will you?
+            {{{ body }}}
           </p>
           <div class="dcs-footer__action">
             <button type="button" class="dcs-button">
-              Yes, I&rsquo;m in. ➔
+              {{{ ready }}}
             </button>
           </div>
+          {{/with}}
         </div>
         <div class="dcs-footer__close">
-          <button type="button" class="dcs-close" title="Close banner">
-            <span class="dcs-sr-only">Close banner</span>
+          <button type="button" class="dcs-close" title="{{ close_banner }}">
+            <span class="dcs-sr-only">{{ close_banner }}</span>
           </button>
         </div>
       </div>
