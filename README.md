@@ -89,7 +89,7 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
     /**
      * The date when the sticky footer widget should start showing on your web site.
      * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
-     * Defaults to new Date() (Today).
+     * Defaults to new Date(2019, 7, 1) (August 1st, 2019).
      */
     footerDisplayStartDate: new Date(), //@ type {Date object}
     
