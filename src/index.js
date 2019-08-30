@@ -148,15 +148,11 @@ function trackEvent(category, action, label, value) {
   window.ga('send', params)
 }
 
-function todayIs(y, m, d) {
-  var date = new Date()
-  var offset = 4 // EDT
-  date.setHours(date.getHours() + date.getTimezoneOffset() / 60 - offset)
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-
-  return (year === y && month === m && day === d)
+function todayIs(date) {
+  var today = new Date()
+  return date.getFullYear() === today.getFullYear()
+    && date.getMonth() === today.getMonth()
+    && date.getDate() === today.getDate()
 }
 
 function getFullscreenDisplayDate(fullPageDisplayStartDate, language) {
@@ -196,7 +192,7 @@ function initializeInterface() {
     addTrackingEvents(query.hostname, query.forceFullPageWidget)
   }
 
-  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth() + 1, fullPageDisplayStartDate.getDate())) {
+  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate)) {
     maximize()
   }
 
