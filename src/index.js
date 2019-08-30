@@ -1,5 +1,6 @@
 import './main.css'
 
+const MS_PER_DAY = 86400000;
 const GOOGLE_ANALYTICS_DELAY_MS = 30
 const GLOBAL_CLIMATE_STRIKE_URLS = {
   en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
@@ -11,11 +12,6 @@ const LOCALE_CODE_MAPPING = {
   en: 'en-EN',
   de: 'de-DE',
   es: 'es-ES'
-}
-
-const LOCALE_DATE_STRING_CONFIG = {
-  day: 'numeric',
-  month: 'long'
 }
 
 let isMaximizing = false
@@ -155,18 +151,14 @@ function todayIs(date) {
     && date.getDate() === today.getDate()
 }
 
-function getFullscreenDisplayDate(fullPageDisplayStartDate, language) {
-  return fullPageDisplayStartDate.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
-}
-
-function getNextDayDisplayDate(fullPageDisplayStartDate, language) {
-  var nextDay = new Date(fullPageDisplayStartDate.getFullYear(), fullPageDisplayStartDate.getMonth(), fullPageDisplayStartDate.getDate() + 1)
-  return nextDay.toLocaleDateString(LOCALE_CODE_MAPPING[language], LOCALE_DATE_STRING_CONFIG)
+function getFormattedDate(date, language) {
+  return date.toLocaleDateString(LOCALE_CODE_MAPPING[language], { day: 'numeric', month: 'long' })
 }
 
 function initializeInterface() {
   const query = parseQuery(location.search)
   const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate))
+  const fullPageDisplayStopDate = new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY)
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -197,8 +189,8 @@ function initializeInterface() {
   }
 
   // Set display dates on full-size widget
-  var fullscreenDateString = getFullscreenDisplayDate(fullPageDisplayStartDate, language)
-  var nextDayDateString = getNextDayDisplayDate(fullPageDisplayStartDate, language)
+  var fullscreenDateString = getFormattedDate(fullPageDisplayStartDate, language)
+  var nextDayDateString = getFormattedDate(fullPageDisplayStopDate, language)
   document.getElementById('dcs-strike-date').innerText = fullscreenDateString
   document.getElementById('dcs-tomorrow-date').innerText = nextDayDateString
 }
