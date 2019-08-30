@@ -28,7 +28,7 @@ Then at midnight on September 20th for 24 hours, the banner will expand to be fu
 
 ![A screenshot of the Digital Climate Strike full page widget](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Full2.png) 
 
-For those who cannot shut down their website for the day, a closable overlay option can also be configured:
+For those who cannot shut down their website for the day, a closable overlay option can also be configured ([demo](https://assets.digitalclimatestrike.net/demo.html?fullPage&showCloseButton)):
 
 ![A screenshot of the Digital Climate Strike full page widget with close button](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Partial2.png)
 
