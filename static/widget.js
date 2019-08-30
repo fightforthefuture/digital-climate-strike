@@ -98,7 +98,7 @@
 
   function setCookie(name, value, expirationDays) {
     var d = new Date();
-    d.setTime(d.getTime()+(expirationDays*24*60*60*1000));
+    d.setTime(d.getTime()+(expirationDays * MS_PER_DAY));
 
     var expires = 'expires='+d.toGMTString();
     document.cookie = name + '=' + value + '; ' + expires + '; path=/';
