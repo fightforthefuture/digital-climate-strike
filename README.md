@@ -22,15 +22,15 @@ If you have any problems or questions regarding the widget, please [submit an is
 
 When you add [**widget.js**](https://github.com/global-climate-strikes/digital-climate-strike/blob/master/static/widget.js) to your site it will show a footer banner ([demo](https://assets.digitalclimatestrike.net/demo.html)) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:
 
-![A screenshot of the Digital Climate Strike footer widget](http://assets.digitalclimatestrike.net/desktop-pre-strike-banner.png)
+![A screenshot of the Digital Climate Strike footer widget](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Banner2.png)
 
 Then at midnight on September 20th for 24 hours, the banner will expand to be full screen ([demo](https://assets.digitalclimatestrike.net/demo.html?fullPage)), showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:
 
-![A screenshot of the Digital Climate Strike full page widget](http://assets.digitalclimatestrike.net/desktop-full-shutdown.png) 
+![A screenshot of the Digital Climate Strike full page widget](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Full2.png) 
 
 For those who cannot shut down their website for the day, a closable overlay option can also be configured:
 
-![A screenshot of the Digital Climate Strike full page widget with close button](http://assets.digitalclimatestrike.net/desktop-full-shutdown-close-button.png)
+![A screenshot of the Digital Climate Strike full page widget with close button](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Partial2.png)
 
 The widget is designed to appear once per user, per device, per day, but can be configured to display at a different interval. If you'd like to force it to show up on your page for testing, reload the page with `#ALWAYS_SHOW_DIGITAL_CLIMATE_STRIKE` at the end of the URL.
 
