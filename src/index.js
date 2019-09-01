@@ -11,7 +11,8 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
 const LOCALE_CODE_MAPPING = {
   en: 'en-EN',
   de: 'de-DE',
-  es: 'es-ES'
+  es: 'es-ES',
+  cs: 'cs-CZ'
 }
 
 let isMaximizing = false

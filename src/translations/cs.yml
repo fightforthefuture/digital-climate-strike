@@ -1,0 +1,19 @@
+full_page:
+  body: '
+      <span class="dcs-website-name__default">Náš</span>
+      <span class="dcs-website-name"></span>
+      <span class="dcs-website-name__website">web</span>
+      se<br />
+      se dnes přidává<br />
+      k celosvětové klimatické stávce.<br />
+      Přidáte se také?'
+  ready:  'Chci se přidat ➔'
+  footer: 'Náš web bude opět přístupný zítra, <time id="dcs-tomorrow-date" datetime="2019-09-21">21. září</time>.'
+footer:
+  body: 'Náš web se přidá k celosvětové stávce za klima <time id="dcs-strike-date" datetime="2019-09-20">20. září</time>. Přidáte se také?'
+  ready: 'Ano, zapojím se ➔'
+
+title: 'Digitální stávka za klima'
+logo_alt: 'Logo digitální stávky za klima'
+close_overlay: 'Zavřít'
+close_banner: 'Zavřít banner'
