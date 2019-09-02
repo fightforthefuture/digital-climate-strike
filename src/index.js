@@ -6,6 +6,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+  cs: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const LOCALE_CODE_MAPPING = {
