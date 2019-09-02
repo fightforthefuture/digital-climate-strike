@@ -59,7 +59,6 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
      * 'en': English
      * 'de': German
      * 'es': Spanish
-     * 'cs': Czech
      * Defaults to null, which will obey the nagivator.language setting of the 
      * viewer's browser.
      */
