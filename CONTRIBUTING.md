@@ -46,6 +46,18 @@ Follow these steps:
 
 You can modify settings by editing `docker-compose.yml` file. The container needs to be rebuilt afterwards
 
+## Localization
+
+The widget can be localized, including the date format. Following changes are needed:
+
+- `src/index.js`: constants `LOCALE_CODE_MAPPING` and `GLOBAL_CLIMATE_STRIKE_URLS` (only if there's relevant language version of https://globalclimatestrike.net/ site) need to be adjusted. For language codes, please refer to https://gist.github.com/wpsmith/7604842
+- `webpack.common.js`: edit `plugins` array and add a new HtmlWebPackPlugin instance based on your language code
+- copy file `src/translations/en.yml` to `src/translations/<your-code>.yml` and translate it
+- `static/widget.js`: edit `getLanguage()` function to add default language resolution for your langcode
+- `README.md`: add entry about your langcode to comment above `language` property
+
+After the new language code is merged, `dist/index-<your-code>.html` file is built, which allows you to use the laguage via instructions in the README.md file.
+
 # Dev Notes
 
 - We use [BEM](http://getbem.com/) for CSS class structure
