@@ -1,7 +1,6 @@
 full_page:
   body: '
       <span class="dcs-website-name__default">Náš</span>
-      <span class="dcs-website-name__prefix"></span>
       <span class="dcs-website-name"></span>
       <span class="dcs-website-name__website">web</span>
       se<br />

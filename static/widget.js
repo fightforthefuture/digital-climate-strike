@@ -55,19 +55,14 @@
   function getLanguage() {
     var language = 'en';
 
-    // Spanish is specified or no language is set and browser is set to spanish
+    // spanish is specified or no language is set and browser is set to spanish
     if (options.language === 'es' || (!options.language && navigator && navigator.language.match(/^es/))) {
       language = 'es';
     }
 
-    // German is specified or no language is set and browser is set to German
+    // spanish is specified or no language is set and browser is set to German
     if (options.language === 'de' || (!options.language && navigator && navigator.language.match(/^de/))) {
       language = 'de';
-    }
-
-    // Czech is specified or no language is set and browser is set to Czech
-    if (options.language === 'cs' || (!options.language && navigator && navigator.language.match(/^cs/))) {
-      language = 'cs';
     }
 
     return language;
