@@ -9,6 +9,13 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   cs: 'https://www.tydenproklima.cz',
 }
 
+const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
+  en: 'https://www.yahoo.com',
+  es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
+  de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+  cs: 'https://www.tydenproklima.cz',
+}
+
 const LOCALE_CODE_MAPPING = {
   en: 'en-EN',
   de: 'de-DE',
@@ -28,6 +35,17 @@ function maximize() {
 
   const fullPage = document.querySelector('.dcs-full-page')
   fullPage.style.display = 'flex'
+}
+
+function getJoinUrls() {
+  const query = parseQuery(location.search)
+  const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate))
+
+  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate)) {
+    return GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS
+  } else {
+    return GLOBAL_CLIMATE_STRIKE_URLS
+  }
 }
 
 function showCloseButtonOnFullPageWidget() {
@@ -92,13 +110,13 @@ function handleJoinStrikeButtonClick(event) {
 
   //adding delay to allow google analytics call to complete
   setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_URLS[language] })
+    postMessage('buttonClicked', { linkUrl: getJoinUrls()[language] })
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
   const element = document.querySelector(selector)
-  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_URLS[language])
+  element.setAttribute('href', getJoinUrls()[language])
 }
 
 function attachEvent(selector, event, callback) {
