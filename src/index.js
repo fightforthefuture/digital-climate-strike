@@ -1,6 +1,6 @@
 import './main.css'
 
-const MS_PER_DAY = 86400000;
+const MS_PER_DAY = 86400000
 const GOOGLE_ANALYTICS_DELAY_MS = 30
 const GLOBAL_CLIMATE_STRIKE_URLS = {
   en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
