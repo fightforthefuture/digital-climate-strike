@@ -70,6 +70,11 @@
       language = 'cs';
     }
 
+    // French is specified or no language is set and browser is set to French
+    if (options.language === 'fr' || (!options.language && navigator && navigator.language.match(/^fr/))) {
+      language = 'fr';
+    }
+
     return language;
   }
 

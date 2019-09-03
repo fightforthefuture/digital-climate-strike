@@ -1,0 +1,20 @@
+full_page:
+  body: '
+      <span class="dcs-website-name__default">Notre</span>
+      <span class="dcs-website-name__prefix">Le</span>
+      <span class="dcs-website-name__website">site</span>
+      <span class="dcs-website-name"></span>
+      rejoint<br />
+      le mouvement de grève mondial<br />
+      #ClimateStrike aujourd&apos;hui.<br />
+      Et vous ?'
+  ready:  'Je suis prêt⋅e ➔'
+  footer: 'Vous serez en mesure d&apos;accéder à ce site demain, le <time id="dcs-tomorrow-date" datetime="2019-09-21">21 septembre</time>.'
+footer:
+  body: 'Notre site se joindra au mouvement de grève mondial #ClimateStrike le <time id="dcs-strike-date" datetime="2019-09-20">20 septembre</time>. Et vous ?'
+  ready: 'J&apos;en suis. ➔'
+
+title: 'Grêve numérique mondiale pour le climat'
+logo_alt: 'Logo Digital Climate Strike'
+close_overlay: 'Fermer la superposition'
+close_banner: 'Fermer la bannière'
