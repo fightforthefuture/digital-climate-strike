@@ -2,8 +2,16 @@ import './main.css'
 
 const MS_PER_DAY = 86400000
 const GOOGLE_ANALYTICS_DELAY_MS = 30
+
 const GLOBAL_CLIMATE_STRIKE_URLS = {
   en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
+  de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+  cs: 'https://www.tydenproklima.cz',
+}
+
+const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
+  en: 'https://www.google.com', //https://globalclimatestrike.net/?source=digitalstrikebanner',
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
@@ -16,6 +24,7 @@ const LOCALE_CODE_MAPPING = {
   cs: 'cs-CZ'
 }
 
+let joinUrls = null
 let isMaximizing = false
 let language = 'en'
 
@@ -92,13 +101,13 @@ function handleJoinStrikeButtonClick(event) {
 
   //adding delay to allow google analytics call to complete
   setTimeout(() => {
-    postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_URLS[language] })
+    postMessage('buttonClicked', { linkUrl: joinUrls[language] })
   }, GOOGLE_ANALYTICS_DELAY_MS)
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
   const element = document.querySelector(selector)
-  element.setAttribute('href', GLOBAL_CLIMATE_STRIKE_URLS[language])
+  element.setAttribute('href', joinUrls[language])
 }
 
 function attachEvent(selector, event, callback) {
@@ -167,6 +176,9 @@ function initializeInterface() {
   const query = parseQuery(location.search)
   const fullPageDisplayStartDate = new Date(Date.parse(query.fullPageDisplayStartDate))
   const fullPageDisplayStopDate = new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY)
+  const isFullPage = query.forceFullPageWidget || todayIs(fullPageDisplayStartDate)
+
+  joinUrls = isFullPage ? GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS : GLOBAL_CLIMATE_STRIKE_URLS
 
   setGlobalClimateStrikeLinkUrl('.dcs-footer .dcs-button')
   setGlobalClimateStrikeLinkUrl('.dcs-footer__logo')
@@ -192,7 +204,7 @@ function initializeInterface() {
     addTrackingEvents(query.hostname, query.forceFullPageWidget)
   }
 
-  if (query.forceFullPageWidget || todayIs(fullPageDisplayStartDate)) {
+  if (isFullPage) {
     maximize()
   }
 
