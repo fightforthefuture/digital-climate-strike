@@ -32,7 +32,7 @@ $ npm run lint
 
 ## Automated Deploys
 
-[TravisCI](https://travis-ci.com/global-climate-strikes/digital-climate-strike/branches) is set up to build the widget and upload it to Google Cloud Storage on every commit to the master branch.
+[TravisCI](https://travis-ci.com/fightforthefuture/digital-climate-strike/branches) is set up to build the widget and upload it to Google Cloud Storage on every commit to the master branch.
 
 ## Development Docker container
 
