@@ -81,9 +81,9 @@ function handleCloseButtonClick(event) {
   event.stopPropagation()
 
   //adding delay to allow google analytics call to complete
-  setTimeout(() => {
+  addAsyncAnalyticsDelay(() => {
     postMessage('closeButtonClicked')
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  })
 }
 
 function handleJoinStrikeButtonClick(event) {
@@ -91,9 +91,18 @@ function handleJoinStrikeButtonClick(event) {
   event.stopPropagation()
 
   //adding delay to allow google analytics call to complete
-  setTimeout(() => {
+  addAsyncAnalyticsDelay(() => {
     postMessage('buttonClicked', { linkUrl: GLOBAL_CLIMATE_STRIKE_URLS[language] })
-  }, GOOGLE_ANALYTICS_DELAY_MS)
+  })
+}
+
+function addAsyncAnalyticsDelay(fn) {
+  return new Promise(function(resolve, reject) {
+    fn()
+    resolve()
+  }).then(res => {
+    setTimeout(() => {}, GOOGLE_ANALYTICS_DELAY_MS)
+  })
 }
 
 function setGlobalClimateStrikeLinkUrl(selector) {
