@@ -24,7 +24,7 @@ const LOCALE_CODE_MAPPING = {
   cs: 'cs-CZ'
 }
 
-let joinUrls = null;
+let joinUrls = null
 let isMaximizing = false
 let language = 'en'
 
