@@ -75,6 +75,11 @@
       language = 'fr';
     }
 
+    // Dutch is specified or no language is set and browser is set to Dutch
+    if (options.language === 'nl' || (!options.language && navigator && navigator.language.match(/^nl/))) {
+      language = 'nl';
+    }
+
     return language;
   }
 

@@ -1,0 +1,20 @@
+full_page:
+  body: '
+      <span class="dcs-website-name__default">Onze</span>
+      <span class="dcs-website-name__prefix">De</span>
+      <span class="dcs-website-name"></span>
+      <span class="dcs-website-name__website">website</span>
+      neemt vandaag deel<br />
+      aan de wereldwijde<br />
+      #ClimateStrike<br />
+      Doe je mee?'
+  ready:  'Ik doe mee. ➔'
+  footer: 'Je kan deze website morgen, <time id="dcs-tomorrow-date" datetime="2019-09-21">21 september</time>, opnieuw bereiken.'
+footer:
+  body: 'Onze website zal deelnemen aan de wereldwijde #ClimateStrike op <time id="dcs-strike-date" datetime="2019-09-20">20 september</time>. Doe je mee?'
+  ready: 'Ja, ik doe mee. ➔'
+
+title: 'Digitale klimaatstaking'
+logo_alt: 'Logo van de digitale klimaatstaking'
+close_overlay: 'Sluit overlay'
+close_banner: 'Sluit banner'
