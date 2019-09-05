@@ -4,14 +4,14 @@ const MS_PER_DAY = 86400000
 const GOOGLE_ANALYTICS_DELAY_MS = 30
 
 const GLOBAL_CLIMATE_STRIKE_URLS = {
-  en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  en: 'https://digital.globalclimatestrike.net/join/?source=digitalstrikebanner',
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
 }
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
-  en: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  en: 'https://digital.globalclimatestrike.net/join/?source=digitalstrikebanner',
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
