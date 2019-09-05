@@ -17,6 +17,7 @@ const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
+  nl: 'https://nl.globalclimatestrike.net/?source=digitalstrikebanner'
 }
 
 const LOCALE_CODE_MAPPING = {
@@ -25,6 +26,7 @@ const LOCALE_CODE_MAPPING = {
   es: 'es-ES',
   cs: 'cs-CZ',
   fr: 'fr-FR',
+  nl: 'nl-NL'
 }
 
 let joinUrls = null
