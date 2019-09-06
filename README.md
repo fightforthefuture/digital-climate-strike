@@ -15,11 +15,12 @@ This project was inspired by the [Fight for the Future Red Alert widget](https:/
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>
 ```
 
-### Option 2:
+### Option 2 (Self-Hosted):
     1. Clone the repo with command `git clone https://github.com/fightforthefuture/digital-climate-strike.git`.
     2. Inside the project's folder, run 'npm install && npm run build'. A folder named 'dist' will be generated.
     3. Copy the files index.html and widget.js from dist into your site's folder.
-    4. Include the widget anywhere on your site with <script src="widget.js" async></script>
+    4. Configure the 'iframeHost' option, as described in the section about `DIGITAL_CLIMATE_STRIKE_OPTIONS`.
+    5. Include the widget anywhere on your site with <script src="widget.js" async></script>
 
 You can change the user experience and do some customization via the `DIGITAL_CLIMATE_STRIKE_OPTIONS` [described below](#customization-options).
 
