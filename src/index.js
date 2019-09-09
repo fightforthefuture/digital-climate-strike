@@ -9,6 +9,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
+  nl: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
@@ -17,7 +18,7 @@ const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
-  nl: 'https://nl.globalclimatestrike.net/?source=digitalstrikebanner'
+  nl: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const LOCALE_CODE_MAPPING = {
