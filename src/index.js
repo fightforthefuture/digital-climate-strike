@@ -8,6 +8,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
+  fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
