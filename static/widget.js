@@ -136,6 +136,7 @@
 
   function receiveMessage(event) {
     if (!event.data.DIGITAL_CLIMATE_STRIKE) return;
+    if (!event.origin.startsWith(iframeHost)) return;
 
     switch (event.data.action) {
       case 'maximize':
@@ -143,6 +144,7 @@
       case 'closeButtonClicked':
         return closeWindow();
       case 'buttonClicked':
+        if (!event.data.linkUrl.startsWith("http")) return;
         return navigateToLink(event.data.linkUrl);
     }
   }
