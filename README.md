@@ -70,6 +70,7 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
      * 'cs': Czech
      * 'fr': French
      * 'nl': Dutch
+     * 'tr': Turkish
      * Defaults to null, which will obey the nagivator.language setting of the 
      * viewer's browser.
      */

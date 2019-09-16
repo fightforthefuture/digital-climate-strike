@@ -162,6 +162,12 @@ module.exports = {
       language: 'nl',
       filename: 'index-nl.html'
     }),
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      inlineSource: '.(js|css)$',
+      language: 'tr',
+      filename: 'index-tr.html'
+    }),
     new CopyPlugin([
       { from: 'static', to: '' }
     ]),
