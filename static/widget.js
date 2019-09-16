@@ -80,6 +80,11 @@
       language = 'nl';
     }
 
+    // Turkish is specified or no language is set and browser is set to Turkish
+    if (options.language === 'tr' || (!options.language && navigator && navigator.language.match(/^tr/))) {
+      language = 'tr';
+    }
+
     return language;
   }
 

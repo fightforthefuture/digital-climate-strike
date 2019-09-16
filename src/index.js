@@ -10,6 +10,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
   nl: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  tr: 'https://sifirgelecek.org/',
 }
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
@@ -19,6 +20,7 @@ const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
   nl: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  tr: 'https://sifirgelecek.org',
 }
 
 const LOCALE_CODE_MAPPING = {
@@ -27,7 +29,8 @@ const LOCALE_CODE_MAPPING = {
   es: 'es-ES',
   cs: 'cs-CZ',
   fr: 'fr-FR',
-  nl: 'nl-NL'
+  nl: 'nl-NL',
+  tr: 'tr-TR',
 }
 
 let joinUrls = null
