@@ -22,7 +22,7 @@ This project was inspired by the [Fight for the Future Red Alert widget](https:/
     4. Configure the 'iframeHost' option, as described in the section about `DIGITAL_CLIMATE_STRIKE_OPTIONS`.
     5. Include the widget anywhere on your site with <script src="widget.js" async></script>
 
-You can change the user experience and do some customization via the `DIGITAL_CLIMATE_STRIKE_OPTIONS` [described below](#customization-options). Before adding the widget make sure your have also read the [section below](#important-note-regarding-google-analytics-tracking) about Google Analytics tracking.  
+You can change the user experience and do some customization via the `DIGITAL_CLIMATE_STRIKE_OPTIONS` [described below](#customization-options). Before adding the widget make sure you have also read the [section below](#important-note-regarding-google-analytics-tracking) about Google Analytics tracking.  
 
 If you have any problems or questions regarding the widget, please [submit an issue](https://github.com/global-climate-strikes/digital-climate-strike/issues).
 
@@ -123,7 +123,7 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
 ```
 ## Important note regarding Google Analytics tracking
 
-A you can see in the `DIGITAL_CLIMATE_STRIKE_OPTIONS` above, Google Analytics is configured by default to post events when the widget is shown and when any of the buttons are clicked. See [**index.js**](https://github.com/fightforthefuture/digital-climate-strike/blob/master/src/index.js) for more details. The reasons for this are outlined in Issue [#76](https://github.com/fightforthefuture/digital-climate-strike/issues/76). If you would like to disable this please add the widget to your site with the following configuration: 
+As you can see in the `DIGITAL_CLIMATE_STRIKE_OPTIONS` above, Google Analytics is configured by default to post events when the widget is shown and when any of the buttons are clicked. See [**index.js**](https://github.com/fightforthefuture/digital-climate-strike/blob/master/src/index.js) for more details. The reasons for this are outlined in Issue [#76](https://github.com/fightforthefuture/digital-climate-strike/issues/76). If you would like to disable this please add the widget to your site with the following configuration: 
 
 ```html
 <script type="text/javascript">
