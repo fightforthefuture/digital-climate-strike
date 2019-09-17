@@ -10,7 +10,7 @@ full_page:
   ready:  'Ben de varım! ➔'
   footer: 'Bu siteye yarın ulaşabileceksiniz: <time id="dcs-tomorrow-date" datetime="2019-09-21">21 Eylül</time>.'
 footer:
-    body: "İnternet sitemiz <time id=\"dcs-strike-date\" datetime=\"2019-09-20\">20 Eylül'de</time>.  Küresel #İklimGrevi'ne katılacak. Peki ya sen?"
+    body: "İnternet sitemiz <time id=\"dcs-strike-date\" datetime=\"2019-09-20\">20 Eylül'de</time> Küresel #İklimGrevi'ne katılacak. Peki ya sen?"
     ready: 'Evet ben de varım. ➔'
 
 title: 'Dijital İklim Grevi'
