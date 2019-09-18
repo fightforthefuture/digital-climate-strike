@@ -71,7 +71,8 @@ If you define an object called `DIGITAL_CLIMATE_STRIKE_OPTIONS` before including
      * 'fr': French
      * 'nl': Dutch
      * 'tr': Turkish
-     * Defaults to null, which will obey the nagivator.language setting of the 
+     * 'pt': Portuguese
+     * Defaults to null, which will obey the navigator.language setting of the 
      * viewer's browser.
      */
      language: null, // @type {string}
