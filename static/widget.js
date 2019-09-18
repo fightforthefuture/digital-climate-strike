@@ -85,6 +85,11 @@
       language = 'tr';
     }
 
+    // Portuguese is specified or no language is set and browser is set to Portuguese
+    if (options.language === 'pt' || (!options.language && navigator && navigator.language.match(/^pt/))) {
+      language = 'pt';
+    }
+
     return language;
   }
 
