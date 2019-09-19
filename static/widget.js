@@ -167,10 +167,11 @@
    * 4. We haven't set alwaysShowWidget to be true in the config.
    */
   function iFrameShouldNotBeShown() {
+    if (alwaysShowWidget) return false;
+
     return (footerDisplayStartDate.getTime() > NOW && fullPageDisplayStartDate.getTime() > NOW)
       || new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY) < NOW
       || !!getCookie(CLOSED_COOKIE)
-      && !alwaysShowWidget;
   }
 
   function initializeInterface() {
