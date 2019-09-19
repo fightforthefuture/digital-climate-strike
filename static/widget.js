@@ -171,7 +171,7 @@
 
     return (footerDisplayStartDate.getTime() > NOW && fullPageDisplayStartDate.getTime() > NOW)
       || new Date(fullPageDisplayStartDate.getTime() + MS_PER_DAY) < NOW
-      || !!getCookie(CLOSED_COOKIE)
+      || !!getCookie(CLOSED_COOKIE);
   }
 
   function initializeInterface() {
