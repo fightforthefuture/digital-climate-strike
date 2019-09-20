@@ -22,7 +22,7 @@ const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   fr: 'https://fr.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   nl: 'https://globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   tr: 'https://sifirgelecek.org',
-  pt: 'https://pt.globalclimatestrike.net/?source=digitalstrikebanner',
+  pt: 'https://pt.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
 }
 
 const LOCALE_CODE_MAPPING = {
