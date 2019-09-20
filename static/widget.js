@@ -49,6 +49,7 @@
     iframe.allowTransparency = true;
     wrapper.appendChild(iframe);
     document.body.appendChild(wrapper);
+    iframe.contentWindow.focus();
     return wrapper;
   }
 
