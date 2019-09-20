@@ -17,10 +17,10 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   en: 'https://globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
-  de: 'https://de.globalclimatestrike.net/?source=digitalstrikebanner',
+  de: 'https://de.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
-  fr: 'https://fr.globalclimatestrike.net/?source=digitalstrikebanner',
-  nl: 'https://globalclimatestrike.net/?source=digitalstrikebanner',
+  fr: 'https://fr.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
+  nl: 'https://globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   tr: 'https://sifirgelecek.org',
   pt: 'https://pt.globalclimatestrike.net/?source=digitalstrikebanner',
 }
