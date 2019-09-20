@@ -16,7 +16,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   en: 'https://globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
-  es: 'https://es.globalclimatestrike.net/?source=digitalstrikebanner',
+  es: 'https://es.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   de: 'https://de.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   cs: 'https://www.tydenproklima.cz',
   fr: 'https://fr.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
