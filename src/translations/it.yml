@@ -6,12 +6,12 @@ full_page:
       <span class="dcs-website-name__website">sito</span>
       si unirà<br />
       allo sciopero globale #ClimateStrike.<br />
-      E tu ?'
+      E tu?'
   ready:  'Voglio partecipare. ➔'
   footer: 'Potrai accedere da domani, <time id="dcs-tomorrow-date" datetime="2019-09-21">21 Settembre</time>.'
 
 footer:
-  body: 'Il nostro sito si unirà allo sciopero globale #ClimateStrike il prossimo <time id="dcs-strike-date" datetime="2019-09-20">20 Settembre</time>. E tu ?'
+  body: 'Il nostro sito si unirà allo sciopero globale #ClimateStrike il prossimo <time id="dcs-strike-date" datetime="2019-09-20">20 Settembre</time>. E tu?'
   ready: 'Voglio partecipare.  ➔'
 
 title: 'Sciopero digitale per il clima'

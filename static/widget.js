@@ -91,6 +91,11 @@
       language = 'pt';
     }
 
+    // Italian is specified or no language is set and browser is set to Italian
+    if (options.language === 'it' || (!options.language && navigator && navigator.language.match(/^it/))) {
+      language = 'it';
+    }
+
     return language;
   }
 
