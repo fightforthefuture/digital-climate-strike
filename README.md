@@ -6,5 +6,5 @@ This was the source code for the Digital Climate Strike's widget. It allowed any
 
 ## 🚨🚨 IMPORTANT 🚨🚨
 
-If you still have this widget installed, please remove it immediately. [digitalclimatestrike.net has been taken over by spammers.](https://github.com/fightforthefuture/digital-climate-strike/issues)
+If you still have this widget installed, please remove it immediately. [digitalclimatestrike.net has been taken over by spammers.](https://github.com/fightforthefuture/digital-climate-strike/issues/116)
 
