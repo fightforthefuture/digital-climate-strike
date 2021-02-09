@@ -1,0 +1,21 @@
+  
+full_page:
+  body: '
+      <span class="dcs-website-name__default">Нашият</span>
+      <span class="dcs-website-name__prefix"></span>
+      <span class="dcs-website-name"></span>
+      <span class="dcs-website-name__website">уеб сайт</span>
+      е<br />
+      част от глобалния<br />
+      #ClimateStrike сега.<br />
+      А вие?'
+  ready:  'Съгласен съм ➔'
+  footer: 'Вие ще можете да посетите този уеб сайт утре, <time id="dcs-tomorrow-date" datetime="2019-09-21">21 Септември</time>.'
+footer:
+  body: 'Нашият уеб сайт ще се присъедини към глобалния #ClimateStrike на <time id="dcs-strike-date" datetime="2019-09-20">20 Септември</time>. А вие?'
+  ready: 'Да, включвам се. ➔'
+
+title: 'Digital Climate Strike'
+logo_alt: 'Digital Climate Strike лого'
+close_overlay: 'Затвори overlay'
+close_banner: 'Затвори banner'

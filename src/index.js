@@ -13,6 +13,7 @@ const GLOBAL_CLIMATE_STRIKE_URLS = {
   tr: 'https://sifirgelecek.org/',
   pt: 'https://pt.globalclimatestrike.net/?source=digitalstrikebanner',
   it: 'https://digital.globalclimatestrike.net/join/?source=digitalstrikebanner',
+  bg: 'https://bg.globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
@@ -25,6 +26,7 @@ const GLOBAL_CLIMATE_STRIKE_FULL_PAGE_URLS = {
   tr: 'https://sifirgelecek.org',
   pt: 'https://pt.globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
   it: 'https://globalclimatestrike.net/digital-strike-day/?source=digitalstrikebanner',
+  bg: 'https://bg.globalclimatestrike.net/?source=digitalstrikebanner',
 }
 
 const LOCALE_CODE_MAPPING = {
@@ -37,6 +39,7 @@ const LOCALE_CODE_MAPPING = {
   tr: 'tr-TR',
   pt: 'pt-BR',
   it: 'it-IT',
+  bg: 'bg-BG',
 }
 
 let joinUrls = null
